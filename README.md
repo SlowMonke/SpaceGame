@@ -1,2 +1,2 @@
 # SpaceGame
-A game being made by me and my friend just for fun.
+A game being made by me and my friends just for fun.
