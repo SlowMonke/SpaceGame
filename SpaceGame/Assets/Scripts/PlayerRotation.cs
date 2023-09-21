@@ -16,8 +16,8 @@ public class PlayerRotation : MonoBehaviour
     private void Update()
     {
         // Get the horizontal and vertical input axes (-1 to 1) for movement
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
+        float verticalInput = Input.GetAxisRaw("Vertical");
 
         // Calculate the move direction based on the input axes
         moveDirection = new Vector2(horizontalInput, verticalInput).normalized;

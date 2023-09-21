@@ -140,8 +140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54e9b0f91c7dcda41a02911a0eba24cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3.5
-  rotationSpeed: 220
+  moveSpeed: 4.2
+  rotationSpeed: 285
 --- !u!50 &268289849
 Rigidbody2D:
   serializedVersion: 4
@@ -765,7 +765,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1998932763793805784, guid: 9d044588b9d5ba844b03227c960167c3, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1998932763793805784, guid: 9d044588b9d5ba844b03227c960167c3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -826,7 +826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9023205633170822940, guid: cbfdbd65943e13049965e156bae3eb3d, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9023205633170822940, guid: cbfdbd65943e13049965e156bae3eb3d, type: 3}
       propertyPath: m_LocalPosition.x
