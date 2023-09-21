@@ -277,7 +277,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9023205633170822940, guid: cbfdbd65943e13049965e156bae3eb3d, type: 3}
       propertyPath: m_RootOrder
+<<<<<<< HEAD
       value: 1
+=======
+      value: 2
+>>>>>>> textures
       objectReference: {fileID: 0}
     - target: {fileID: 9023205633170822940, guid: cbfdbd65943e13049965e156bae3eb3d, type: 3}
       propertyPath: m_LocalPosition.x
