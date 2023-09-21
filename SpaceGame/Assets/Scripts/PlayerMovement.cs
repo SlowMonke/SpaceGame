@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -19,10 +18,5 @@ public class PlayerMovement : MonoBehaviour
         float moveVertical = Input.GetAxis("Vertical");
 
         rb.velocity = new Vector2(moveHorizontal *speed, moveVertical * speed);
-
-        if (Input.GetKey("r"))
-        {
-            SceneManager.LoadScene("Level1");
-        }
     }
 }
