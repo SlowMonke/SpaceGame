@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class playerRotationAndMovement : MonoBehaviour
+public class PlayerRotation : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public float rotationSpeed = 180f; // Adjust the rotation speed as needed
+    public float rotationSpeed = 250f; // Adjust the rotation speed as needed
 
     private Rigidbody2D rb;
     private Vector2 moveDirection;
