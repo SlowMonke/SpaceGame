@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed4e5b58b69bbe47bcf2355b4e9ebfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabToSpawn: {fileID: 0}
-  repeatInterval: 0
+  prefabToSpawn: {fileID: 3947931556807028270, guid: 9d044588b9d5ba844b03227c960167c3, type: 3}
+  repeatInterval: 10
