@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1631450561}
   - component: {fileID: 1631450560}
   - component: {fileID: 1631450562}
-  - component: {fileID: 1631450565}
+  - component: {fileID: 8334539832806470965}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: enemy
@@ -514,7 +514,7 @@ PolygonCollider2D:
       - {x: 1.5699999, y: -0.66999996}
       - {x: 1.5699999, y: -0.77}
       - {x: 1.4699999, y: -0.77}
---- !u!114 &1631450565
+--- !u!114 &8334539832806470965
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -528,4 +528,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   moveSpeed: 2
-  avoidanceRadius: 4
+  avoidanceRadius: 0.5

@@ -4,7 +4,7 @@ public class EnemyMovement : MonoBehaviour
 {
     public Transform player;  // Reference to the player's ship
     public float moveSpeed = 5f;  // Adjust this value for the enemy's movement speed
-    public float raycastDistance = 2f;  // Distance to check for obstacles
+    public float avoidanceRadius = 2f;  // Radius within which enemies avoid each other
 
     private void Start()
     {
@@ -22,22 +22,26 @@ public class EnemyMovement : MonoBehaviour
         if (player != null)
         {
             // Calculate the direction towards the player
-            Vector3 direction = (player.position - transform.position).normalized;
+            Vector2 direction = ((Vector2)player.position - (Vector2)transform.position).normalized;
 
-            // Cast a ray forward to check for obstacles
-            Ray ray = new Ray(transform.position, direction);
-            RaycastHit hit;
+            // Check for nearby enemies to avoid
+            Collider2D[] nearbyEnemies = Physics2D.OverlapCircleAll(transform.position, avoidanceRadius);
 
-            if (Physics.Raycast(ray, out hit, raycastDistance))
+            Vector2 avoidanceDirection = Vector2.zero;
+
+            foreach (Collider2D enemy in nearbyEnemies)
             {
-                // If an obstacle is detected, change direction randomly
-                Vector3 randomDirection = Random.insideUnitSphere;
-                randomDirection.y = 0;  // Ensure the direction is in the horizontal plane
-                direction += randomDirection.normalized;
+                if (enemy != null && enemy.gameObject != this.gameObject)
+                {
+                    avoidanceDirection += ((Vector2)transform.position - (Vector2)enemy.transform.position).normalized;
+                }
             }
 
-            // Move the enemy towards the new direction
-            transform.Translate(direction * moveSpeed * Time.deltaTime);
+            // Combine the direction towards the player and the avoidance direction
+            Vector2 combinedDirection = direction + avoidanceDirection.normalized;
+
+            // Move the enemy towards the combined direction
+            transform.Translate(combinedDirection * moveSpeed * Time.deltaTime);
         }
     }
 }
