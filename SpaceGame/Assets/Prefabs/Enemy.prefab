@@ -528,4 +528,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   moveSpeed: 2
-  maxRandomOffset: 2
+  avoidanceRadius: 4
