@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1518296024208741971}
   - component: {fileID: 8298790250531157818}
+  - component: {fileID: -7965226891908683536}
   m_Layer: 0
   m_Name: EnemySpawnPoint
   m_TagString: Untagged
@@ -45,4 +46,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabToSpawn: {fileID: 7931175399354939767, guid: 7aae7a4dffafb9b42a84b0d9454166d5, type: 3}
-  repeatInterval: 10
+--- !u!114 &-7965226891908683536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7468340312025801453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a704ab06a1c48b445af7b5cd2ce8b66f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySpawnPoints: []
+  enemyPrefab: {fileID: 7931175399354939767, guid: 7aae7a4dffafb9b42a84b0d9454166d5, type: 3}
+  minSpawnInterval: 2
+  maxSpawnInterval: 5

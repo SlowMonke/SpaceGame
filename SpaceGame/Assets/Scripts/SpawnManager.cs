@@ -2,35 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnPoint : MonoBehaviour
+public class SpawnManager : MonoBehaviour
 {
-    public GameObject prefabToSpawn;
-    private float minSpawnInterval = 2.0f; // The minimum interval between spawns
-    private float maxSpawnInterval = 5.0f; // The maximum interval between spawns
+    public SpawnPoint playerSpawnPoint;
 
-    // Start is called before the first frame update
+    
+
     void Start()
     {
-        StartCoroutine(SpawnRandomly());
+        // Consolidate all the logic to setup a scene inside a single method. 
+        // This makes it easier to call again in the future, in places other than the Start() method.
+        SetupScene();
     }
 
-    private IEnumerator SpawnRandomly()
+    public void SetupScene()
     {
-        while (true)
-        {
-            // Calculate a random spawn interval based on the score
-            float randomInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
-            yield return new WaitForSeconds(randomInterval);
-
-            SpawnObject();
-        }
+        SpawnPlayer();
     }
 
-    public void SpawnObject()
+    public void SpawnPlayer()
     {
-        if (prefabToSpawn != null)
+        if (playerSpawnPoint != null)
         {
-            Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
+            GameObject player = playerSpawnPoint.SpawnObject();
         }
     }
 }
