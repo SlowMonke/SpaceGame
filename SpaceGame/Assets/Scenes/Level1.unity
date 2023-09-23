@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 318399939}
   - component: {fileID: 318399938}
   m_Layer: 5
-  m_Name: Button
+  m_Name: RestartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -274,8 +274,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -53}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -0, y: -57.4303}
+  m_SizeDelta: {x: 182.1517, y: 38.8607}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &318399938
 MonoBehaviour:
@@ -598,6 +598,7 @@ RectTransform:
   - {fileID: 1498478461}
   - {fileID: 1506112363}
   - {fileID: 318399937}
+  - {fileID: 1413730263}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -618,7 +619,7 @@ GameObject:
   - component: {fileID: 1115195295}
   - component: {fileID: 1115195294}
   m_Layer: 5
-  m_Name: heart
+  m_Name: heart 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -793,6 +794,42 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2840059fa30a5a649b7551abd026d97e, type: 3}
+--- !u!1 &1413730262
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1413730263}
+  m_Layer: 5
+  m_Name: GameOverObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1413730263
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413730262}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 913890701}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -6.2891, y: -25.93}
+  m_SizeDelta: {x: 265.42, y: 101.86}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1472986948
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,7 +842,7 @@ GameObject:
   - component: {fileID: 1472986951}
   - component: {fileID: 1472986950}
   m_Layer: 5
-  m_Name: heart (1)
+  m_Name: heart 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -878,7 +915,7 @@ GameObject:
   - component: {fileID: 1498478463}
   - component: {fileID: 1498478462}
   m_Layer: 5
-  m_Name: heart (2)
+  m_Name: heart 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -951,7 +988,7 @@ GameObject:
   - component: {fileID: 1506112365}
   - component: {fileID: 1506112364}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: GameOverText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -974,8 +1011,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -39, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -6.2893, y: 0}
+  m_SizeDelta: {x: 265.4196, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1506112364
 MonoBehaviour:
@@ -1171,6 +1208,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ce3a2e30f64d644b5610f590e66bfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOver: {fileID: 1506112362}
+  restartButton: {fileID: 318399936}
+  heart1: {fileID: 1115195292}
+  heart2: {fileID: 1472986948}
+  heart3: {fileID: 1498478460}
 --- !u!4 &1541350101
 Transform:
   m_ObjectHideFlags: 0
