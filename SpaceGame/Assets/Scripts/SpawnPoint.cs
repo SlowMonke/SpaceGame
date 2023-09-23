@@ -5,25 +5,32 @@ using UnityEngine;
 public class SpawnPoint : MonoBehaviour
 {
     public GameObject prefabToSpawn;
+    private float minSpawnInterval = 2.0f; // The minimum interval between spawns
+    private float maxSpawnInterval = 5.0f; // The maximum interval between spawns
 
-
-    public float repeatInterval;
     // Start is called before the first frame update
-    public void Start()
+    void Start()
     {
-        if (repeatInterval > 0)
+        StartCoroutine(SpawnRandomly());
+    }
+
+    private IEnumerator SpawnRandomly()
+    {
+        while (true)
         {
-            InvokeRepeating("SpawnObject", 0.0f, repeatInterval);
+            // Calculate a random spawn interval based on the score
+            float randomInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
+            yield return new WaitForSeconds(randomInterval);
+
+            SpawnObject();
         }
     }
 
-    public GameObject SpawnObject()
+    public void SpawnObject()
     {
         if (prefabToSpawn != null)
         {
-            return Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
+            Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
         }
-        return null;
     }
-    
 }
