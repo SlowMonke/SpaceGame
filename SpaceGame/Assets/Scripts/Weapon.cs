@@ -6,7 +6,7 @@ public class Weapon : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
-    public float ShootingDelay = 1;
+    public float ShootingDelay = 0.5f;
 
 
     void Start()
@@ -22,7 +22,7 @@ public class Weapon : MonoBehaviour
             if (ShootingDelay <= 0)
             {
                 Shoot();
-                ShootingDelay = 1;
+                ShootingDelay = 0.5f;
             }
             
         }
