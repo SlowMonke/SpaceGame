@@ -8,7 +8,7 @@ public class EnemyManager : MonoBehaviour
     public GameObject enemyPrefab; // The enemy prefab to spawn
     private float minSpawnInterval = 2.0f; // The minimum initial interval between enemy spawns
     private float maxSpawnInterval = 5.0f; // The maximum initial interval between enemy spawns
-    private int scoreValue; // Assuming you have a way to track the player's score
+    private int totalKilledEnemies; // Variable to track total killed enemies
 
     private void Start()
     {
@@ -20,9 +20,9 @@ public class EnemyManager : MonoBehaviour
     {
         while (true)
         {
-            // Calculate a random spawn interval based on the score
-            float scoreModifier = Mathf.Clamp01(scoreValue / 100.0f); // Adjust the division value and range as needed.
-            float randomInterval = Random.Range(minSpawnInterval, maxSpawnInterval) * Mathf.Lerp(1.0f, 0.5f, scoreModifier);
+            // Calculate a random spawn interval based on the number of killed enemies.
+            float intervalModifier = Mathf.Clamp01(totalKilledEnemies / 10.0f); // Adjust the division value as needed.
+            float randomInterval = Random.Range(minSpawnInterval, maxSpawnInterval) * Mathf.Lerp(1.0f, 0.5f, intervalModifier);
 
             // Get a random available spawn point.
             SpawnPoint spawnPoint = GetRandomAvailableSpawnPoint();
@@ -59,5 +59,11 @@ public class EnemyManager : MonoBehaviour
         }
 
         return null; // No available spawn points found.
+    }
+
+    // Call this method when an enemy is killed to update the total killed enemies count.
+    public void EnemyKilled()
+    {
+        totalKilledEnemies++;
     }
 }
