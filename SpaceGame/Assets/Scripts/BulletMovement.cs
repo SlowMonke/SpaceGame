@@ -17,6 +17,7 @@ public class BulletMovement : MonoBehaviour
         if (enemy != null)
         {
             enemy.TakeDamage(damage);
+            Score.scoreValue += 5;
         }
         Destroy(gameObject);
     }
