@@ -1,12 +1,7 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:SpaceGame/Assets/Scenes/Materials.meta
 guid: bb318f6608ccca549b343131a7a1041b
 folderAsset: yes
 DefaultImporter:
-========
-guid: 2840059fa30a5a649b7551abd026d97e
-PrefabImporter:
->>>>>>>> spawn-points-and-enemy-AI:SpaceGame/Assets/Prefabs/EnemySpawnPoint.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
