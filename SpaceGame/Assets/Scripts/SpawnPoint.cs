@@ -5,63 +5,41 @@ using UnityEngine;
 public class SpawnPoint : MonoBehaviour
 {
     public GameObject prefabToSpawn;
-    private float minSpawnInterval = 2.0f; // The minimum interval between spawns
-    private float maxSpawnInterval = 5.0f; // The maximum interval between spawns
-    private bool isAvailable = true; // Indicates whether this spawn point is available for spawning
+    public float repeatInterval;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        StartCoroutine(SpawnRandomly());
-    }
+    private bool isSpawning; // Flag to track if an enemy is currently being spawned
 
-    private IEnumerator SpawnRandomly()
+    public void Start()
     {
-        while (true)
+        if (repeatInterval > 0)
         {
-            if (isAvailable)
-            {
-                // Calculate a random spawn interval based on the score
-                float randomInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
-                yield return new WaitForSeconds(randomInterval);
-
-                SpawnObject();
-            }
-            else
-            {
-                // Wait for a short time before checking again
-                yield return new WaitForSeconds(1.0f);
-            }
+            InvokeRepeating("SpawnObject", 0.0f, repeatInterval);
         }
     }
 
+    // Change the return type to GameObject
     public GameObject SpawnObject()
     {
-        if (prefabToSpawn != null)
+        if (!isSpawning && prefabToSpawn != null)
         {
-            // Spawn the object and mark this spawn point as unavailable
-            isAvailable = false;
+            isSpawning = true; // Set the flag to true to indicate that an enemy is being spawned
             GameObject spawnedObject = Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
-
-            // After a certain time or event, mark this spawn point as available again
-            StartCoroutine(MakeAvailableAfterDelay());
-
-            return spawnedObject;
+            StartCoroutine(MakeSpawnAvailable());
+            return spawnedObject; // Return the spawned object
         }
+
         return null;
     }
 
-    private IEnumerator MakeAvailableAfterDelay()
+    private IEnumerator MakeSpawnAvailable()
     {
-        // You can adjust this delay based on your game's needs
-        yield return new WaitForSeconds(5.0f);
-
-        // Mark this spawn point as available again
-        isAvailable = true;
+        yield return new WaitForSeconds(1.0f); // Adjust the duration as needed
+        isSpawning = false; // Set the flag back to false to allow spawning the next enemy
     }
-    
+
+    // Add this method to check if the spawn point is available for spawning
     public bool IsAvailable()
     {
-        return isAvailable;
+        return !isSpawning;
     }
 }

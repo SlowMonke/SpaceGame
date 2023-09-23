@@ -6,9 +6,10 @@ public class EnemyManager : MonoBehaviour
 {
     public List<SpawnPoint> enemySpawnPoints = new List<SpawnPoint>();
     public GameObject enemyPrefab; // The enemy prefab to spawn
-    private float minSpawnInterval = 2.0f; // The minimum initial interval between enemy spawns
-    private float maxSpawnInterval = 5.0f; // The maximum initial interval between enemy spawns
+    private float minSpawnInterval = 1.0f; // Lowered initial minimum interval between enemy spawns
+    private float maxSpawnInterval = 3.0f; // Lowered initial maximum interval between enemy spawns
     private int totalKilledEnemies; // Variable to track total killed enemies
+    private float minSpawnIntervalLimit = 0.2f; // Minimum limit for minSpawnInterval
 
     private void Start()
     {
@@ -37,6 +38,12 @@ public class EnemyManager : MonoBehaviour
 
                 // Wait for the specified interval before spawning the next enemy.
                 yield return new WaitForSeconds(randomInterval);
+
+                // Gradually reduce the minimum spawn interval to make enemies spawn faster over time.
+                if (minSpawnInterval > minSpawnIntervalLimit)
+                {
+                    minSpawnInterval -= 0.05f * Time.deltaTime;
+                }
             }
             else
             {

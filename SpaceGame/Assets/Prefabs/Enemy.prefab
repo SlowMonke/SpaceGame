@@ -543,5 +543,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  moveSpeed: 1
+  moveSpeed: 1.5
   avoidanceRadius: 0.5
