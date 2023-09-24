@@ -7,6 +7,8 @@ public class BulletMovement : MonoBehaviour
     public float speed = 20f;
     public int damage = 10;
     public Rigidbody2D rb;
+    // Add a variable to count the number of enemies killed by this bullet
+    private int killCount = 0;
     void Start()
     {
         rb.velocity = transform.up * speed;
@@ -20,9 +22,23 @@ public class BulletMovement : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
-                Score.scoreValue += 5;
+                // Increment the kill count by one
+                killCount++;
+                // If the kill count is two, double the score value
+                if (killCount == 2)
+                {
+                    Score.scoreValue += 10;
+                }
+                else
+                {
+                    Score.scoreValue += 5;
+                }
             }
-            Destroy(gameObject);
+            // Do not destroy the bullet until it hits two enemies or leaves the screen
+            if (killCount == 2 || transform.position.y > Camera.main.orthographicSize)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
