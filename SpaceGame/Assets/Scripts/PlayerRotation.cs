@@ -1,12 +1,21 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerRotation : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public float rotationSpeed = 250f; // Adjust the rotation speed as needed
+    public float rotationSpeed = 250f; 
 
     private Rigidbody2D rb;
     private Vector2 moveDirection;
+    private Camera _camera;
+
+    void Start()
+    {
+        _camera = Camera.main;
+    }
 
     private void Awake()
     {
@@ -15,17 +24,18 @@ public class PlayerRotation : MonoBehaviour
 
     private void Update()
     {
-        // Get the horizontal and vertical input axes (-1 to 1) for movement
+
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
 
-        // Calculate the move direction based on the input axes
+
         moveDirection = new Vector2(horizontalInput, verticalInput).normalized;
+        PreventPlayerGoingOffScren();
     }
 
     private void FixedUpdate()
     {
-        // Rotate the rocket smoothly in the shortest direction
+
         if (moveDirection != Vector2.zero)
         {
             float targetAngle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg - 90f;
@@ -34,7 +44,24 @@ public class PlayerRotation : MonoBehaviour
             transform.eulerAngles = new Vector3(0f, 0f, newAngle);
         }
 
-        // Move the rocket based on the move direction and speed using physics
+
         rb.velocity = moveDirection * moveSpeed;
+    }
+
+    private void PreventPlayerGoingOffScren()
+    {
+        Vector2 screenPosition = _camera.WorldToScreenPoint(transform.position);
+
+        if ((screenPosition.x < 0 && rb.velocity.x < 0) ||
+            (screenPosition.x > _camera.pixelWidth && rb.velocity.x > 0))
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
+        }
+
+        if ((screenPosition.y < 0 && rb.velocity.y < 0) ||
+           (screenPosition.y > _camera.pixelHeight && rb.velocity.y > 0))
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 0);
+        }
     }
 }
