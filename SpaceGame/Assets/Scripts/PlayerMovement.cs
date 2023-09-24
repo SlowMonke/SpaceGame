@@ -12,6 +12,9 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private Camera _camera;
 
+    [SerializeField]
+    private float _screenBorder;
+
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -45,14 +48,14 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 screenPosition = _camera.WorldToScreenPoint(transform.position);
 
-        if ((screenPosition.x < 0 && moveDirection.x < 0) ||
-            (screenPosition.x > _camera.pixelWidth && moveDirection.x > 0))
+        if ((screenPosition.x < _screenBorder && moveDirection.x < 0) ||
+            (screenPosition.x > _camera.pixelWidth - _screenBorder && moveDirection.x > 0))
         {
             moveDirection = new Vector2(0, moveDirection.y);
         }
 
-        if ((screenPosition.y < 0 && moveDirection.y < 0) ||
-           (screenPosition.y > _camera.pixelHeight && moveDirection.y > 0))
+        if ((screenPosition.y < _screenBorder && moveDirection.y < 0) ||
+           (screenPosition.y > _camera.pixelHeight - _screenBorder && moveDirection.y > 0))
         {
             moveDirection = new Vector2(moveDirection.x, 0);
         }

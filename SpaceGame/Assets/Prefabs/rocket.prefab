@@ -45,7 +45,6 @@ GameObject:
   - component: {fileID: 268289856}
   - component: {fileID: 268289849}
   - component: {fileID: 268289852}
-  - component: {fileID: 268289847}
   - component: {fileID: 5072481101862074163}
   m_Layer: 0
   m_Name: rocket
@@ -668,20 +667,6 @@ CompositeCollider2D:
       - {x: 0.10287, y: 0.6269877}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
---- !u!114 &268289847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3565988732828781382}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54e9b0f91c7dcda41a02911a0eba24cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 4.5
-  rotationSpeed: 380
 --- !u!114 &5072481101862074163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -696,6 +681,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 4.5
   rotationSpeed: 380
+  _screenBorder: 15
 --- !u!1 &6678975568269349926
 GameObject:
   m_ObjectHideFlags: 0

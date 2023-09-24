@@ -8,7 +8,6 @@ public class Weapon : MonoBehaviour
     public GameObject bulletPrefab;
     public float ShootingDelay = 0.3f;
 
-
     void Start()
     {
         ShootingDelay = 0;
@@ -26,11 +25,9 @@ public class Weapon : MonoBehaviour
                     Shoot();
                     ShootingDelay = 0.3f;
                 }
-
             }
         }
         
-
     }
 
     void Shoot () 
