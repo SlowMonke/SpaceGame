@@ -2,13 +2,14 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public Transform player;  // Reference to the player's ship
-    public float moveSpeed = 5f;  // Adjust this value for the enemy's movement speed
-    public float avoidanceRadius = 2f;  // Radius within which enemies avoid each other
+    public Transform player;
+    public float moveSpeed = 5f;
+    public float avoidanceRadius = 2f;
+    public Rigidbody2D rb;
+    public int damage = 1;
 
     private void Start()
     {
-        // Find the player's ship GameObject in the scene by tag
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
         if (player == null)
@@ -21,10 +22,10 @@ public class EnemyMovement : MonoBehaviour
     {
         if (player != null)
         {
-            // Calculate the direction towards the player
+
             Vector2 direction = ((Vector2)player.position - (Vector2)transform.position).normalized;
 
-            // Check for nearby enemies to avoid
+
             Collider2D[] nearbyEnemies = Physics2D.OverlapCircleAll(transform.position, avoidanceRadius);
 
             Vector2 avoidanceDirection = Vector2.zero;
@@ -37,12 +38,21 @@ public class EnemyMovement : MonoBehaviour
                 }
             }
 
-            // Combine the direction towards the player and the avoidance direction
+
             Vector2 combinedDirection = direction + avoidanceDirection.normalized;
 
-            // Move the enemy towards the combined direction
+
             transform.Translate(combinedDirection * moveSpeed * Time.deltaTime);
         }
     }
+    void OnTriggerEnter2D(Collider2D hitInfo)
+    {
+        PlayerHealth Player = hitInfo.GetComponent<PlayerHealth>();
+        if (Player != null)
+        {
+            Player.TakeDamage(1);
+            
+        }
+        Destroy(gameObject);
+    }
 }
-
