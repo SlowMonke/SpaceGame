@@ -697,7 +697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   rb: {fileID: 0}
-  deathEffect: {fileID: 0}
+  deathEffect: {fileID: 1503150395312845836, guid: a8adfcc360ff55a4c9026f967981afbb, type: 3}
   numOfHearts: 0
   fullHeart: {fileID: 0}
   emptyHeart: {fileID: 0}

@@ -107,6 +107,7 @@ public class Wander : MonoBehaviour
 
             targetTransform = null;
         }
+           
     }
 
     void OnDrawGizmos()
@@ -121,4 +122,5 @@ public class Wander : MonoBehaviour
     {
         Debug.DrawLine(rb2d.position, endPosition, Color.red);
     }
+
 }
