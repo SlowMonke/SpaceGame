@@ -9,14 +9,13 @@ public class Wander : MonoBehaviour
     public float wanderSpeed;
     float currentSpeed;
 
-    public float directionChangeInterval = 1f; // Adjust the wait time as needed
+    public float directionChangeInterval = 1f; 
     public bool followPlayer;
 
     Coroutine moveCoroutine;
 
     CircleCollider2D circleCollider;
     Rigidbody2D rb2d;
-
     Transform targetTransform = null;
     Vector3 endPosition;
     float currentAngle = 0;
@@ -50,7 +49,7 @@ public class Wander : MonoBehaviour
     {
         currentAngle += Random.Range(0, 360);
         currentAngle = Mathf.Repeat(currentAngle, 360);
-        endPosition += Vector3FromAngle(currentAngle);
+        endPosition += Vector3FromAngle(currentAngle) * 3;
     }
 
     Vector3 Vector3FromAngle(float inputAngleDegrees)

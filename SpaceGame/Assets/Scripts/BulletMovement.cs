@@ -13,14 +13,19 @@ public class BulletMovement : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        EnemyHealth enemy = hitInfo.GetComponent<EnemyHealth>();
-        if (enemy != null)
+        // Check if the collider type is PolygonCollider2D
+        if (hitInfo.GetType() == typeof(PolygonCollider2D))
         {
-            enemy.TakeDamage(damage);
-            Score.scoreValue += 5;
+            EnemyHealth enemy = hitInfo.GetComponent<EnemyHealth>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+                Score.scoreValue += 5;
+            }
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
+
     // Update is called once per frame
 
 }
