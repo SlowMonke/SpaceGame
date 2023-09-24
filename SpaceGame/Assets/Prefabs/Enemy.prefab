@@ -598,6 +598,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pursuitSpeed: 2
-  wanderSpeed: 1
-  directionChangeInterval: 3
+  wanderSpeed: 2
+  directionChangeInterval: 1
   followPlayer: 1
