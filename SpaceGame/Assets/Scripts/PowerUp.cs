@@ -8,7 +8,7 @@ public class PowerUp : MonoBehaviour
     public float maxDistance = 10f; // the maximum distance to move up
     Rigidbody2D rb2d;
     float startY; // the initial y position of the power up
-    public int value = 10; // the value of the power up
+    
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -36,7 +36,6 @@ public class PowerUp : MonoBehaviour
     {
         if (other.CompareTag("Player")) // check if the other collider is the player
         {
-            Score.scoreValue += value; // increase the score by the value of the power up
             
            
             Destroy(gameObject); // destroy the power up game object

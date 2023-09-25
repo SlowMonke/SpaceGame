@@ -7,12 +7,9 @@ public class BulletMovement : MonoBehaviour
     public float speed = 20f;
     public int damage = 10;
     public Rigidbody2D rb;
-    private int hitCount; // variable to keep track of how many enemies the bullet has hit
-
     void Start()
     {
         rb.velocity = transform.up * speed;
-        hitCount = 0; // initialize hit count to zero
     }
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
@@ -23,14 +20,9 @@ public class BulletMovement : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
-                Score.scoreValue += 5; // multiply score value by two
-                hitCount++; // increment hit count by one
-                if (hitCount == 2) // check if hit count is equal to two
-                {
-                    Destroy(gameObject); // destroy the bullet object
-                }
+                Score.scoreValue += 5;
             }
-            
+            Destroy(gameObject);
         }
     }
 
