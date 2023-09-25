@@ -7,6 +7,7 @@ public class BulletMovement : MonoBehaviour
     public float speed = 20f;
     public int damage = 10;
     public Rigidbody2D rb;
+    public bool piercing = false;
     void Start()
     {
         rb.velocity = transform.up * speed;
@@ -17,6 +18,16 @@ public class BulletMovement : MonoBehaviour
         if (hitInfo.GetType() == typeof(PolygonCollider2D))
         {
             EnemyHealth enemy = hitInfo.GetComponent<EnemyHealth>();
+            if (piercing == true)
+            {
+                Debug.Log("bababaa");
+                if (enemy != null)
+                {
+                    enemy.TakeDamage(damage);
+                    Score.scoreValue += 5;
+                }           
+            } 
+            else
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);

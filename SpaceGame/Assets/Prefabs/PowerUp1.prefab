@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: -2433811250729246491}
   - component: {fileID: 2073574751}
   - component: {fileID: 2073574752}
-  - component: {fileID: 1385240187}
   - component: {fileID: 1385240188}
   m_Layer: 0
   m_Name: PowerUp1
@@ -103,7 +102,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   maxDistance: 4
-  value: 10
 --- !u!50 &2073574751
 Rigidbody2D:
   serializedVersion: 4
@@ -139,8 +137,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalSpeed: 1
   horizontalRange: 8
---- !u!66 &1385240187
-CompositeCollider2D:
+--- !u!60 &1385240188
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -152,126 +150,6 @@ CompositeCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
-  m_GenerationType: 0
-  m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 1385240188}
-    m_ColliderPaths:
-    - - X: 100000
-        Y: -2025000
-      - X: 2450000
-        Y: 400000
-      - X: 2450000
-        Y: 749999
-      - X: 4850000
-        Y: 674999
-      - X: 6049999
-        Y: 1949999
-      - X: 6049999
-        Y: 3999999
-      - X: 5999999
-        Y: 4050000
-      - X: 4800000
-        Y: 4050000
-      - X: 4350000
-        Y: 3599999
-      - X: 3649999
-        Y: 3324999
-      - X: 3324999
-        Y: 3949999
-      - X: 4050000
-        Y: 4800000
-      - X: 4050000
-        Y: 5999999
-      - X: 3999999
-        Y: 6049999
-      - X: 2400000
-        Y: 6049999
-      - X: 1600000
-        Y: 5250000
-      - X: 1150000
-        Y: 4875000
-      - X: 625000
-        Y: 2150000
-      - X: 300000
-        Y: 2025000
-      - X: -75000
-        Y: 1750000
-      - X: -1700000
-        Y: 25000
-      - X: -2050000
-        Y: -400000
-      - X: -2050000
-        Y: -749999
-      - X: -3800000
-        Y: -725000
-      - X: -4600000
-        Y: -1525000
-      - X: -4850000
-        Y: -1999999
-      - X: -4850000
-        Y: -3599999
-      - X: -3599999
-        Y: -4850000
-      - X: -1999999
-        Y: -4850000
-      - X: -1550000
-        Y: -4500000
-      - X: -700000
-        Y: -3624999
-      - X: -224999
-        Y: -2150000
-  m_CompositePaths:
-    m_Paths:
-    - - {x: -0.2000087, y: -0.485}
-      - {x: -0.1549987, y: -0.4499988}
-      - {x: -0.0699983, y: -0.3624944}
-      - {x: -0.0224881, y: -0.2149955}
-      - {x: 0.0100038005, y: -0.202496}
-      - {x: 0.245, y: 0.0400105}
-      - {x: 0.2450304, y: 0.0749989}
-      - {x: 0.48500812, y: 0.067508504}
-      - {x: 0.6049999, y: 0.19501}
-      - {x: 0.60499233, y: 0.40000752}
-      - {x: 0.5999891, y: 0.405}
-      - {x: 0.47999242, y: 0.4049924}
-      - {x: 0.4349946, y: 0.3599977}
-      - {x: 0.3649882, y: 0.3325227}
-      - {x: 0.3325119, y: 0.3950142}
-      - {x: 0.405, y: 0.4800095}
-      - {x: 0.4049924, y: 0.60000753}
-      - {x: 0.3999891, y: 0.6049999}
-      - {x: 0.23999241, y: 0.60499233}
-      - {x: 0.1599988, y: 0.5249989}
-      - {x: 0.1149982, y: 0.4874911}
-      - {x: 0.0624861, y: 0.2149947}
-      - {x: 0.0299972, y: 0.20249811}
-      - {x: -0.0075009, y: 0.1749988}
-      - {x: -0.1700003, y: 0.0024996}
-      - {x: -0.205, y: -0.0400093}
-      - {x: -0.2050298, y: -0.074999504}
-      - {x: -0.3800078, y: -0.0725078}
-      - {x: -0.4600017, y: -0.1525033}
-      - {x: -0.485, y: -0.2000062}
-      - {x: -0.4849924, y: -0.3600075}
-      - {x: -0.3599891, y: -0.485}
-  m_VertexDistance: 0.0005
-  m_OffsetDistance: 0.00005
---- !u!60 &1385240188
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5897191659323799076}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}

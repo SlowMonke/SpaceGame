@@ -4,41 +4,45 @@ using UnityEngine;
 
 public class PowerUp : MonoBehaviour
 {
-    public float speed = 5f; // the speed of the power up
-    public float maxDistance = 10f; // the maximum distance to move up
+    public float speed = 5f;
+    public float maxDistance = 10f;
     Rigidbody2D rb2d;
-    float startY; // the initial y position of the power up
+    float startY;
     
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        startY = transform.position.y; // store the initial y position
+        startY = transform.position.y;
     }
 
-    // Update is called once per frame
     private void Update()
     {
         if (Score.scoreValue == 20)
         {
-            float currentY = transform.position.y; // get the current y position
-            if (currentY - startY < maxDistance) // check if the distance is less than the maximum
+            float currentY = transform.position.y;
+            if (currentY - startY < maxDistance)
             {
-                rb2d.velocity = transform.up * speed; // move up with the speed
+                rb2d.velocity = transform.up * speed;
             }
             else
             {
-                rb2d.velocity = Vector2.zero; // stop moving
+                rb2d.velocity = Vector2.zero;
             }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player")) // check if the other collider is the player
+        if (other.CompareTag("Player"))
         {
+            // Assuming the "piercing" variable is in another script attached to the same GameObject
+            BulletMovement bulletMovement = GetComponent<BulletMovement>();
+            if (bulletMovement != null)
+            {
+                bulletMovement.piercing = true;
+            }
             
-           
-            Destroy(gameObject); // destroy the power up game object
+            Destroy(gameObject);
         }
     }
 }
