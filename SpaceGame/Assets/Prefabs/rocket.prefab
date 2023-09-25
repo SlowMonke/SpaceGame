@@ -698,11 +698,14 @@ MonoBehaviour:
   health: 3
   rb: {fileID: 0}
   deathEffect: {fileID: 1503150395312845836, guid: a8adfcc360ff55a4c9026f967981afbb, type: 3}
-  numOfHearts: 0
+  numOfHearts: 3
   fullHeart: {fileID: 0}
   emptyHeart: {fileID: 0}
   cooldown: 1e-31
-  hearts: []
+  hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &6678975568269349926
 GameObject:
   m_ObjectHideFlags: 0
