@@ -156,11 +156,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f87110fc58c40341b954e8d37e973e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 2
+  _speed: 1.8
   _rotationSpeed: 250
-  player: {fileID: 0}
-  moveSpeed: 5
-  avoidanceRadius: 2
+  _screenBorder: -30
 --- !u!114 &-146628104386352170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,4 +301,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9e9cbbd8d167e74d8f4016ce9fa31fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerAwarenessDistance: 10
+  _playerAwarenessDistance: 7
