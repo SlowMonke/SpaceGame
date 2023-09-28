@@ -2784,6 +2784,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: bc59f3c716ad6de4aba21e90933b5a57, type: 3}
     - target: {fileID: -2429580073269032735, guid: 92a6e17aff2352245937742e36f15c85, type: 3}
+      propertyPath: deathEffect
+      value: 
+      objectReference: {fileID: 1503150395312845836, guid: a8adfcc360ff55a4c9026f967981afbb, type: 3}
+    - target: {fileID: -2429580073269032735, guid: 92a6e17aff2352245937742e36f15c85, type: 3}
       propertyPath: hearts.Array.size
       value: 3
       objectReference: {fileID: 0}
