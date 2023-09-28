@@ -1,48 +1,65 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public Transform player;  // Reference to the player's ship
-    public float moveSpeed = 5f;  // Adjust this value for the enemy's movement speed
-    public float avoidanceRadius = 2f;  // Radius within which enemies avoid each other
+    [SerializeField]
+    private float _speed;
 
-    private void Start()
+    [SerializeField]
+    private float _rotationSpeed;
+
+
+    private Rigidbody2D _rigidbody;
+    private PlayerAwarenessController _playerAwarenessController;
+    private Vector2 _targetDirection;
+
+    private void Awake()
     {
-        // Find the player's ship GameObject in the scene by tag
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        _rigidbody = GetComponent<Rigidbody2D>();
+        _playerAwarenessController = GetComponent<PlayerAwarenessController>();
+    }
 
-        if (player == null)
+    private void FixedUpdate()
+    {
+        UpdateTargetDirection();
+        RotateTowardsTarget();
+        SetVelocity();
+    }
+
+    private void UpdateTargetDirection()
+    {
+        if (_playerAwarenessController.AwareOfPlayer)
         {
-            Debug.LogError("Player not found. Make sure the player has the 'Player' tag.");
+            _targetDirection = _playerAwarenessController.DirectionToPlayer;
+        }
+        else
+        {
+            _targetDirection = Vector2.zero;
         }
     }
 
-    private void Update()
+    private void RotateTowardsTarget()
     {
-        if (player != null)
+        if (_targetDirection == Vector2.zero)
         {
-            // Calculate the direction towards the player
-            Vector2 direction = ((Vector2)player.position - (Vector2)transform.position).normalized;
+            return;
+        }
+        Quaternion targetRotation = Quaternion.LookRotation(transform.forward, _targetDirection);
+        Quaternion rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
 
-            // Check for nearby enemies to avoid
-            Collider2D[] nearbyEnemies = Physics2D.OverlapCircleAll(transform.position, avoidanceRadius);
+        _rigidbody.SetRotation(rotation);
+    }
 
-            Vector2 avoidanceDirection = Vector2.zero;
-
-            foreach (Collider2D enemy in nearbyEnemies)
-            {
-                if (enemy != null && enemy.gameObject != this.gameObject)
-                {
-                    avoidanceDirection += ((Vector2)transform.position - (Vector2)enemy.transform.position).normalized;
-                }
-            }
-
-            // Combine the direction towards the player and the avoidance direction
-            Vector2 combinedDirection = direction + avoidanceDirection.normalized;
-
-            // Move the enemy towards the combined direction
-            transform.Translate(combinedDirection * moveSpeed * Time.deltaTime);
+    private void SetVelocity()
+    {
+        if (_targetDirection == Vector2.zero)
+        {
+            _rigidbody.velocity = Vector2.zero;
+        } else
+        {
+            _rigidbody.velocity = transform.up * _speed;
         }
     }
 }
-

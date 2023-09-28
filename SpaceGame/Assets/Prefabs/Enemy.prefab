@@ -11,12 +11,14 @@ GameObject:
   - component: {fileID: 4856373630978115201}
   - component: {fileID: 2580128097383593674}
   - component: {fileID: 6402127265989478326}
+  - component: {fileID: 8155740766757069190}
   - component: {fileID: 6402127265989478325}
+  - component: {fileID: -6326239059021489398}
   - component: {fileID: -146628104386352170}
   - component: {fileID: 2081896904}
   - component: {fileID: 2081896902}
   - component: {fileID: 10418995}
-  - component: {fileID: 8155740766757069190}
+  - component: {fileID: -2991465305243483211}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: enemy
@@ -112,6 +114,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &8155740766757069190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7931175399354939767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44dd7cac11d270a469bc301b0ed9bd9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  rb: {fileID: 0}
+  damage: 1
 --- !u!114 &6402127265989478325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,6 +144,23 @@ MonoBehaviour:
   health: 1
   rb: {fileID: 0}
   deathEffect: {fileID: 187808730796462478, guid: a00bd8d2dbbaf744687dc53ed823af3a, type: 3}
+--- !u!114 &-6326239059021489398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7931175399354939767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f87110fc58c40341b954e8d37e973e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 2
+  _rotationSpeed: 250
+  player: {fileID: 0}
+  moveSpeed: 5
+  avoidanceRadius: 2
 --- !u!114 &-146628104386352170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,10 +183,10 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7931175399354939767}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -165,7 +199,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7931175399354939767}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5ae7b49ed107e445873ce2638308ff2, type: 3}
   m_Name: 
@@ -184,7 +218,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -257,7 +291,7 @@ PolygonCollider2D:
       - {x: 1.5699999, y: -0.66999996}
       - {x: 1.5699999, y: -0.77}
       - {x: 1.4699999, y: -0.77}
---- !u!114 &8155740766757069190
+--- !u!114 &-2991465305243483211
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -266,9 +300,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7931175399354939767}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44dd7cac11d270a469bc301b0ed9bd9f, type: 3}
+  m_Script: {fileID: 11500000, guid: c9e9cbbd8d167e74d8f4016ce9fa31fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  rb: {fileID: 0}
-  damage: 1
+  _playerAwarenessDistance: 10
