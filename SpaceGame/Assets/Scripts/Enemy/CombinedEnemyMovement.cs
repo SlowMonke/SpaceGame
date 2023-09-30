@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class CombinedEnemyMovement : MonoBehaviour
 {
     [SerializeField]
     private float _speed;
@@ -13,6 +13,8 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField]
     private float _screenBorder;
 
+    public Transform player; // Reference to the player's ship
+    public float avoidanceRadius = 2f; // Radius within which enemies avoid each other
 
     private Rigidbody2D _rigidbody;
     private PlayerAwarenessController _playerAwarenessController;
@@ -22,10 +24,21 @@ public class EnemyMovement : MonoBehaviour
 
     private void Awake()
     {
-                _rigidbody = GetComponent<Rigidbody2D>();
+        _rigidbody = GetComponent<Rigidbody2D>();
         _playerAwarenessController = GetComponent<PlayerAwarenessController>();
         _targetDirection = transform.up;
         _camera = Camera.main;
+    }
+
+    private void Start()
+    {
+        // Find the player's ship GameObject in the scene by tag
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        if (player == null)
+        {
+            Debug.LogError("Player not found. Make sure the player has the 'Player' tag.");
+        }
     }
 
     private void FixedUpdate()
@@ -40,13 +53,14 @@ public class EnemyMovement : MonoBehaviour
         HandleRandomDirectionChange();
         HandlePlayerTargeting();
         HandleEnemyOffScreen();
+        HandleAvoidance();
     }
 
     private void HandleRandomDirectionChange()
     {
         _changeDirectionCooldown -= Time.deltaTime;
 
-        if(_changeDirectionCooldown <= 0)
+        if (_changeDirectionCooldown <= 0)
         {
             float angleChange = Random.Range(-90f, 90f);
             Quaternion rotation = Quaternion.AngleAxis(angleChange, transform.forward);
@@ -79,12 +93,37 @@ public class EnemyMovement : MonoBehaviour
         {
             _targetDirection = new Vector2(_targetDirection.x, -_targetDirection.y);
         }
+    }
 
+    private void HandleAvoidance()
+    {
+        if (player != null)
+        {
+            Vector2 direction = ((Vector2)player.position - (Vector2)transform.position).normalized;
+
+            // Check for nearby enemies to avoid
+            Collider2D[] nearbyEnemies = Physics2D.OverlapCircleAll(transform.position, avoidanceRadius);
+
+            Vector2 avoidanceDirection = Vector2.zero;
+
+            foreach (Collider2D enemy in nearbyEnemies)
+            {
+                if (enemy != null && enemy.gameObject != this.gameObject)
+                {
+                    avoidanceDirection += ((Vector2)transform.position - (Vector2)enemy.transform.position).normalized;
+                }
+            }
+
+            // Combine the direction towards the player and the avoidance direction
+            Vector2 combinedDirection = direction + avoidanceDirection.normalized;
+
+            // Update the target direction with the avoidance applied
+            _targetDirection = combinedDirection;
+        }
     }
 
     private void RotateTowardsTarget()
     {
-       
         Quaternion targetRotation = Quaternion.LookRotation(transform.forward, _targetDirection);
         Quaternion rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
 
@@ -92,7 +131,7 @@ public class EnemyMovement : MonoBehaviour
     }
 
     private void SetVelocity()
-    { 
-         _rigidbody.velocity = transform.up * _speed;
+    {
+        _rigidbody.velocity = transform.up * _speed;
     }
 }

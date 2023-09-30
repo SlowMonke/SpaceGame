@@ -15,8 +15,6 @@ GameObject:
   - component: {fileID: 6402127265989478325}
   - component: {fileID: -6326239059021489398}
   - component: {fileID: -146628104386352170}
-  - component: {fileID: 2081896904}
-  - component: {fileID: 2081896902}
   - component: {fileID: 10418995}
   - component: {fileID: -2991465305243483211}
   m_Layer: 6
@@ -174,38 +172,6 @@ MonoBehaviour:
   player: {fileID: 0}
   moveSpeed: 1.5
   avoidanceRadius: 0.5
---- !u!58 &2081896904
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7931175399354939767}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 23
---- !u!114 &2081896902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7931175399354939767}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5ae7b49ed107e445873ce2638308ff2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pursuitSpeed: 2
-  wanderSpeed: 2
-  directionChangeInterval: 1
-  followPlayer: 1
 --- !u!60 &10418995
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -301,4 +267,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9e9cbbd8d167e74d8f4016ce9fa31fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  avoidanceRadius: 0.4
   _playerAwarenessDistance: 7
