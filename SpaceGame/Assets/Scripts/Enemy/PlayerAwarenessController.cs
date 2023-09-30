@@ -20,15 +20,20 @@ public class PlayerAwarenessController : MonoBehaviour
 
     void Update()
     {
-        Vector2 enemyToPlayerVector = _player.position - transform.position;
-        DirectionToPlayer = enemyToPlayerVector.normalized;
+        if (_player != null)
+        {
+            Vector2 enemyToPlayerVector = _player.position - transform.position;
+            DirectionToPlayer = enemyToPlayerVector.normalized;
 
-        if(enemyToPlayerVector.magnitude <= _playerAwarenessDistance)
-        {
-            AwareOfPlayer = true;
-        } else
-        {
-            AwareOfPlayer = false;
+            if (enemyToPlayerVector.magnitude <= _playerAwarenessDistance)
+            {
+                AwareOfPlayer = true;
+            }
+            else
+            {
+                AwareOfPlayer = false;
+            }
         }
+        
     }
 }
