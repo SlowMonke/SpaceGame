@@ -751,36 +751,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed4e5b58b69bbe47bcf2355b4e9ebfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &450631687 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3565988732828781382, guid: 92a6e17aff2352245937742e36f15c85, type: 3}
-  m_PrefabInstance: {fileID: 1996322612}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &450631688 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -2429580073269032735, guid: 92a6e17aff2352245937742e36f15c85, type: 3}
   m_PrefabInstance: {fileID: 1996322612}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 450631687}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6840b870489c3904d9daf8aaaba6fd5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &450631696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 450631687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5749a6a31ef406f4b8307a6ddab91fae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  script: {fileID: 450631688}
-  restartMenu: {fileID: 1820506970}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1548,7 +1529,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 450631696}
+      - m_Target: {fileID: 1541350103}
         m_TargetAssemblyTypeName: RestartMenu, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1
@@ -2020,6 +2001,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1541350101}
   - component: {fileID: 1541350102}
+  - component: {fileID: 1541350103}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2035,7 +2017,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541350099}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 400.60715, y: 264.52557, z: -5.298703}
+  m_LocalPosition: {x: 569, y: 286, z: -5.298703}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2055,6 +2037,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 267069939}
+--- !u!114 &1541350103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541350099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5749a6a31ef406f4b8307a6ddab91fae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  script: {fileID: 450631688}
+  restartMenu: {fileID: 1820506970}
 --- !u!1 &1706439423
 GameObject:
   m_ObjectHideFlags: 0
