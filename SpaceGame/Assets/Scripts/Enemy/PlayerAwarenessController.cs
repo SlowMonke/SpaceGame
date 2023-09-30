@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerAwarenessController : MonoBehaviour
 {
     public bool AwareOfPlayer { get; private set;  }
-
+    public float avoidanceRadius = 2f;
     public Vector2 DirectionToPlayer { get; private set; }
 
     [SerializeField]
@@ -23,7 +23,7 @@ public class PlayerAwarenessController : MonoBehaviour
         if (_player != null)
         {
             Vector2 enemyToPlayerVector = _player.position - transform.position;
-            DirectionToPlayer = enemyToPlayerVector.normalized;
+            
 
             if (enemyToPlayerVector.magnitude <= _playerAwarenessDistance)
             {
@@ -34,6 +34,28 @@ public class PlayerAwarenessController : MonoBehaviour
                 AwareOfPlayer = false;
             }
         }
-        
+
+        if (_player != null)
+        {
+            // Calculate the direction towards the player
+            Vector2 direction = ((Vector2)_player.position - (Vector2)transform.position).normalized;
+
+            // Check for nearby enemies to avoid
+            Collider2D[] nearbyEnemies = Physics2D.OverlapCircleAll(transform.position, avoidanceRadius);
+
+            Vector2 avoidanceDirection = Vector2.zero;
+
+            foreach (Collider2D enemy in nearbyEnemies)
+            {
+                if (enemy != null && enemy.gameObject != this.gameObject)
+                {
+                    avoidanceDirection += ((Vector2)transform.position - (Vector2)enemy.transform.position).normalized;
+                }
+            }
+
+            // Combine the direction towards the player and the avoidance direction
+            Vector2 combinedDirection = direction + avoidanceDirection.normalized;
+            DirectionToPlayer = direction + avoidanceDirection.normalized;
+        }
     }
 }

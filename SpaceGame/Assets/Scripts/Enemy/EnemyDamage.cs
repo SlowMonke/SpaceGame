@@ -10,12 +10,16 @@ public class EnemyDamage : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        PlayerHealth Player = hitInfo.GetComponent<PlayerHealth>();
-        if (Player != null)
+        if (hitInfo.CompareTag("Player"))
         {
-            Player.TakeDamage(1);
+            PlayerHealth Player = hitInfo.GetComponent<PlayerHealth>();
 
+            if (Player != null)
+            {
+                Player.TakeDamage(1);
+
+            }
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 }
