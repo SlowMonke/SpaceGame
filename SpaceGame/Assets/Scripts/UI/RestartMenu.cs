@@ -11,6 +11,7 @@ public class RestartMenu : MonoBehaviour
     void Start()
     {
         restartMenu.SetActive(false);
+        Time.timeScale = 1.0f;
     }
 
     void Update()
@@ -18,9 +19,14 @@ public class RestartMenu : MonoBehaviour
         if (script.health <= 0)
         {
             restartMenu.SetActive(true);
+            Invoke("Cooldown", 0.5f);
         }
     }
 
+    public void Cooldown()
+    {
+        Time.timeScale = 0f;
+    }
     public void GoToMainMenu()
     {
         Time.timeScale = 1f;
@@ -31,6 +37,7 @@ public class RestartMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Level1");
+        Score.scoreValue = 0;
     }
 
     public void QuitGame()
