@@ -32,20 +32,23 @@ public class EnemyManager : MonoBehaviour
 
             if (spawnPoint != null)
             {
-                if (Score.scoreValue >= 200 && Random.value <= 0.20f)
+                if (Score.scoreValue >= 200 && Score.scoreValue <= 300 && Random.value <= 0.20f)
                 {
                     Instantiate(specialEnemyPrefab2, spawnPoint.transform.position, Quaternion.identity);
                 } else
                 {
-                    if (Score.scoreValue >= 100 && Random.value <= 0.25f)
+                    if (Score.scoreValue >= 100 && Score.scoreValue <= 200 && Random.value <= 0.25f)
                     {
                         // Spawn a special enemy at the selected spawn point.
                         Instantiate(specialEnemyPrefab, spawnPoint.transform.position, Quaternion.identity);
                     }
                     else
                     {
-                        // Spawn a regular enemy at the selected spawn point.
-                        Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
+                        if (Score.scoreValue <= 300) 
+                        {
+                            Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
+                        }
+
                     }
                 }
 
