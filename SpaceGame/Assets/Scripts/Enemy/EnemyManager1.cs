@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyManager : MonoBehaviour
+public class EnemyManager1 : MonoBehaviour
 {
-    public List<SpawnPoint> enemySpawnPoints = new List<SpawnPoint>();
-    public GameObject enemyPrefab; // The regular enemy prefab to spawn
-    public GameObject specialEnemyPrefab; // The special enemy prefab to spawn
+    public List<SpawnPoint2> enemySpawnPoints = new List<SpawnPoint2>();
+    public GameObject enemyPrefab; // The enemy prefab to spawn
     private float minSpawnInterval = 1.0f; // Lowered initial minimum interval between enemy spawns
     private float maxSpawnInterval = 3.0f; // Lowered initial maximum interval between enemy spawns
     private int totalKilledEnemies; // Variable to track total killed enemies
@@ -27,23 +26,13 @@ public class EnemyManager : MonoBehaviour
             float randomInterval = Random.Range(minSpawnInterval, maxSpawnInterval) * Mathf.Lerp(1.0f, 0.5f, intervalModifier);
 
             // Get a random available spawn point.
-            SpawnPoint spawnPoint = GetRandomAvailableSpawnPoint();
+            SpawnPoint2 spawnPoint = GetRandomAvailableSpawnPoint();
 
             if (spawnPoint != null)
             {
-                // Determine whether to spawn a special enemy based on score.
-                if (Score.scoreValue >= 100 && Random.value <= 0.25f)
-                {
-                    // Spawn a special enemy at the selected spawn point.
-                    Instantiate(specialEnemyPrefab, spawnPoint.transform.position, Quaternion.identity);
-                }
-                else
-                {
-                    // Spawn a regular enemy at the selected spawn point.
-                    Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
-                }
+                // Spawn an enemy at the selected spawn point.
+                Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
 
-                // Mark the spawn point as unavailable for a short duration.
                 spawnPoint.SpawnObject();
 
                 // Wait for the specified interval before spawning the next enemy.
@@ -63,10 +52,10 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    private SpawnPoint GetRandomAvailableSpawnPoint()
+    private SpawnPoint2 GetRandomAvailableSpawnPoint()
     {
         // Filter the list of spawn points to find available ones.
-        List<SpawnPoint> availableSpawnPoints = enemySpawnPoints.FindAll(sp => sp.IsAvailable());
+        List<SpawnPoint2> availableSpawnPoints = enemySpawnPoints.FindAll(sp => sp.IsAvailable());
 
         if (availableSpawnPoints.Count > 0)
         {
