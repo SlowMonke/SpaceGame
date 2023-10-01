@@ -32,7 +32,7 @@ public class BulletMovement : MonoBehaviour
             EnemyHealth enemy = hitInfo.GetComponent<EnemyHealth>();
             if (enemy != null)
             {
-                enemy.TakeDamage(1);
+                enemy.TakeDamage(damage);
                 Score.scoreValue += 5;
             }
             Destroy(gameObject);
