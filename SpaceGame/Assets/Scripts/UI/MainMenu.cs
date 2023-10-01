@@ -5,11 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public LevelLoader levelLoader;
-
     public void PlayGame()
     {
-        levelLoader.PlayGame();
+        SceneManager.LoadScene("Level1");
         Score.scoreValue = 0;
     }
 
