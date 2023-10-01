@@ -15,7 +15,15 @@ public class PlayerAwarenessController : MonoBehaviour
 
     private void Awake()
     {
-        _player = FindObjectOfType<PlayerMovement>().transform;
+        PlayerMovement playerMovement = FindObjectOfType<PlayerMovement>();
+        if (playerMovement != null)
+        {
+            _player = playerMovement.transform;
+        }
+        else
+        {
+            Debug.LogWarning("PlayerMovement not found.");
+        }
     }
 
     void Update()
