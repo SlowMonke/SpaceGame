@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletMovement : MonoBehaviour
+public class EarthMovement : MonoBehaviour
 {
-    public float speed = 20f;
+    public float speed = 10f;
     public int damage = 10;
     public Rigidbody2D rb;
     private Camera _camera;
@@ -26,14 +26,24 @@ public class BulletMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        // Check if the collider type is PolygonCollider2D
         if (hitInfo.GetType() == typeof(PolygonCollider2D))
         {
             EnemyHealth enemy = hitInfo.GetComponent<EnemyHealth>();
             if (enemy != null)
             {
-                enemy.TakeDamage(1);
+                enemy.TakeDamage(damage);
                 Score.scoreValue += 5;
+            }
+            Destroy(gameObject);
+        }
+        if (hitInfo.CompareTag("Player"))
+        {
+            PlayerHealth Player = hitInfo.GetComponent<PlayerHealth>();
+
+            if (Player != null)
+            {
+                Player.TakeDamage(1);
+
             }
             Destroy(gameObject);
         }
@@ -43,7 +53,7 @@ public class BulletMovement : MonoBehaviour
     {
         Vector2 screenPosition = _camera.WorldToScreenPoint(transform.position);
 
-        if(screenPosition.x < 0 ||
+        if (screenPosition.x < 0 ||
            screenPosition.x > _camera.pixelWidth ||
            screenPosition.y < 0 ||
            screenPosition.y > _camera.pixelHeight)
