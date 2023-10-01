@@ -33,7 +33,24 @@ public class BulletMovement : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(1);
-                Score.scoreValue += 5;
+            }
+            Destroy(gameObject);
+        }
+        if (hitInfo.GetType() == typeof(PolygonCollider2D))
+        {
+            EnemyScore1 enemy = hitInfo.GetComponent<EnemyScore1>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(1);
+            }
+            Destroy(gameObject);
+        }
+        if (hitInfo.GetType() == typeof(PolygonCollider2D))
+        {
+            EnemyScore2 enemy = hitInfo.GetComponent<EnemyScore2>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(1);
             }
             Destroy(gameObject);
         }

@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class EnemyScore1 : MonoBehaviour
 {
     public int health = 1;
     public Rigidbody rb;
     public GameObject deathEffect;
-    public void TakeDamage (int damage)
+    public void TakeDamage(int damage)
     {
         health -= damage;
 
@@ -15,7 +15,7 @@ public class EnemyHealth : MonoBehaviour
         if (health <= 0)
         {
             Die();
-            Score.scoreValue += 5;
+            Score.scoreValue += 10;
         }
     }
 
