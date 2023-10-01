@@ -16,7 +16,7 @@ public class EnemyDamage : MonoBehaviour
 
             if (Player != null)
             {
-                Player.TakeDamage(1);
+                Player.TakeDamage(damage);
 
             }
             Destroy(gameObject);

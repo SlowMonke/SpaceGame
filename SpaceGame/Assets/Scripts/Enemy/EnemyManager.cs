@@ -6,7 +6,8 @@ public class EnemyManager : MonoBehaviour
 {
     public List<SpawnPoint> enemySpawnPoints = new List<SpawnPoint>();
     public GameObject enemyPrefab; // The regular enemy prefab to spawn
-    public GameObject specialEnemyPrefab; // The special enemy prefab to spawn
+    public GameObject specialEnemyPrefab;
+    public GameObject specialEnemyPrefab2;// The special enemy prefab to spawn
     private float minSpawnInterval = 1.0f; // Lowered initial minimum interval between enemy spawns
     private float maxSpawnInterval = 3.0f; // Lowered initial maximum interval between enemy spawns
     private int totalKilledEnemies; // Variable to track total killed enemies
@@ -31,16 +32,24 @@ public class EnemyManager : MonoBehaviour
 
             if (spawnPoint != null)
             {
-                // Determine whether to spawn a special enemy based on score.
-                if (Score.scoreValue >= 100 && Random.value <= 0.25f)
+                if (Score.scoreValue >= 200 && Score.scoreValue <= 300 && Random.value <= 0.20f)
                 {
-                    // Spawn a special enemy at the selected spawn point.
-                    Instantiate(specialEnemyPrefab, spawnPoint.transform.position, Quaternion.identity);
-                }
-                else
+                    Instantiate(specialEnemyPrefab2, spawnPoint.transform.position, Quaternion.identity);
+                } else
                 {
-                    // Spawn a regular enemy at the selected spawn point.
-                    Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
+                    if (Score.scoreValue >= 100 && Score.scoreValue <= 200 && Random.value <= 0.25f)
+                    {
+                        // Spawn a special enemy at the selected spawn point.
+                        Instantiate(specialEnemyPrefab, spawnPoint.transform.position, Quaternion.identity);
+                    }
+                    else
+                    {
+                        if (Score.scoreValue <= 300) 
+                        {
+                            Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
+                        }
+
+                    }
                 }
 
                 // Mark the spawn point as unavailable for a short duration.
