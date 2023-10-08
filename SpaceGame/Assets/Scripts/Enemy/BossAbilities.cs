@@ -20,8 +20,11 @@ public class BossAbilities : MonoBehaviour
     public Transform firePoint13;
     public Transform firePoint14;
     public Transform firePoint15;
+    public Transform SpawnPoint1;
+    public Transform SpawnPoint2;
     public GameObject bulletPrefab;
     public GameObject bulletPrefab2;
+    public GameObject MinionPrefab;
     public float ShootingDelay = 2f;
 
     void Start()
@@ -37,7 +40,7 @@ public class BossAbilities : MonoBehaviour
         }
         if (ShootingDelay <= 0)
         {
-            if (Random.value <= 0.5f)
+            if (Random.value <= 0.25f)
             {
                 Ability1();
             }
@@ -49,7 +52,7 @@ public class BossAbilities : MonoBehaviour
                 }
                 else
                 {
-                    if (Random.value <= 0.25f)
+                    if (Random.value <= 0.75f)
                     {
                         Ability3();
                     }
@@ -81,9 +84,11 @@ public class BossAbilities : MonoBehaviour
 
     void Ability3()
     {
-
+        Instantiate(MinionPrefab, SpawnPoint1.position, SpawnPoint1.rotation);
+        Instantiate(MinionPrefab, SpawnPoint2.position, SpawnPoint2.rotation);
+        ShootingDelay = 20f;
     }
-
+    
     void Ability4()
     {
 
