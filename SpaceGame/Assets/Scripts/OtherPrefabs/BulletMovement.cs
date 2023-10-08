@@ -54,6 +54,15 @@ public class BulletMovement : MonoBehaviour
             }
             Destroy(gameObject);
         }
+        if (hitInfo.GetType() == typeof(PolygonCollider2D))
+        {
+            EnemyScore3 enemy = hitInfo.GetComponent<EnemyScore3>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(1);
+            }
+            Destroy(gameObject);
+        }
     }
 
     private void DestroyWhenOffScreen()
