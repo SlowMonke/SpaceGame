@@ -25,7 +25,11 @@ public class BossAbilities : MonoBehaviour
     public GameObject bulletPrefab;
     public GameObject bulletPrefab2;
     public GameObject MinionPrefab;
+
+
     public float ShootingDelay = 2f;
+    public Transform rocket;
+    public Transform boss;
 
     void Start()
     {
@@ -34,54 +38,65 @@ public class BossAbilities : MonoBehaviour
 
     void Update()
     {
-
-
-        if (!PauseMenu.isPaused)
+        if(rocket != null)
         {
-            ShootingDelay -= Time.deltaTime;
-        }
-        if (ShootingDelay <= 0)
-        {
-            if (Random.value <= 0.25f)
+            float distance = (rocket.position - boss.position).magnitude;
+
+            if (!PauseMenu.isPaused)
             {
-                Ability1();
+                ShootingDelay -= Time.deltaTime;
             }
-            else
+            if (ShootingDelay <= 0)
             {
-                if (Random.value <= 0.5f)
+                if (Random.value <= 0.25f)
                 {
-                    Ability2();
+                    Ability1();
                 }
                 else
                 {
-                    if (Random.value <= 0.75f)
+                    if (Random.value <= 0.5f)
                     {
-                        Ability3();
+                        Ability2();
                     }
                     else
                     {
-                        if (Random.value <= 0.25f)
+                        if (Random.value <= 0.75f)
                         {
-                            Ability4();
+                            Ability3();
+                        }
+                        else
+                        {
+                        //    if (Random.value <= 1f || distance <= 20)
+                        //    {
+                        ////        Ability4();
+                        //    }
                         }
                     }
                 }
             }
+            if (Random.value <= 1f || distance <= 9)
+            {
+                Ability4();
+            }else
+            {
+                Debug.Log("Distance12 is greater than 9: " + distance);
+            }
         }
     }
+
 
     void Ability1()
     {
          Shoot();
          Invoke("Shoot2", 1f);
-         ShootingDelay = 10f;
+         ShootingDelay = 8f;
     }
 
     void Ability2()
     {
         FallingAbilityPart1();
         Invoke("FallingAbilityPart2", 2f);
-        ShootingDelay = 10f;
+        ShootingDelay = 6f;
     }
 
     void Ability3()
@@ -93,7 +108,9 @@ public class BossAbilities : MonoBehaviour
     
     void Ability4()
     {
-
+        Debug.Log("funguje to");
+        ShootingDelay = 5f;
+        
     }
 
     void Shoot2()

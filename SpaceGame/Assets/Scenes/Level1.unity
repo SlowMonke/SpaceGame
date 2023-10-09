@@ -1060,6 +1060,11 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!4 &450631703 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3538637180454782263, guid: 92a6e17aff2352245937742e36f15c85, type: 3}
+  m_PrefabInstance: {fileID: 1996322612}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &468525922 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7681111337936271644, guid: 7cee32701216981418efa87adf37c174, type: 3}
@@ -5087,6 +5092,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 6.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2128491125968147401, guid: 7cee32701216981418efa87adf37c174, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 3364272766015735530, guid: 7cee32701216981418efa87adf37c174, type: 3}
+    - target: {fileID: 2128491125968147401, guid: 7cee32701216981418efa87adf37c174, type: 3}
+      propertyPath: rocket
+      value: 
+      objectReference: {fileID: 450631703}
     - target: {fileID: 2128491125968147401, guid: 7cee32701216981418efa87adf37c174, type: 3}
       propertyPath: SpawnPoint1
       value: 
