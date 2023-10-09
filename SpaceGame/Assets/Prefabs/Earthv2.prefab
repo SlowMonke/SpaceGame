@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82084273dce63e345ae044f1b7f89f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  torqueAmount: 0.15
+  torqueAmount: 2.5
 --- !u!60 &851065475067580545
 PolygonCollider2D:
   m_ObjectHideFlags: 0

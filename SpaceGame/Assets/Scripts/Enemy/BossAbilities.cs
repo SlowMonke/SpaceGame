@@ -34,6 +34,8 @@ public class BossAbilities : MonoBehaviour
 
     void Update()
     {
+
+
         if (!PauseMenu.isPaused)
         {
             ShootingDelay -= Time.deltaTime;
