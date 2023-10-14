@@ -33,7 +33,7 @@ public class BossAbilities : MonoBehaviour
 
     void Start()
     {
-        ShootingDelay = 0;
+        ShootingDelay = 5;
     }
 
     void Update()
@@ -60,26 +60,19 @@ public class BossAbilities : MonoBehaviour
                     }
                     else
                     {
-                        if (Random.value <= 0.75f)
+                        if (Random.value <= 0.5f)
                         {
                             Ability3();
                         }
                         else
                         {
-                        //    if (Random.value <= 1f || distance <= 20)
-                        //    {
-                        ////        Ability4();
-                        //    }
+                            if (distance <= 9)
+                            {
+                                Ability4();
+                            }
                         }
                     }
                 }
-            }
-            if (Random.value <= 1f || distance <= 9)
-            {
-                Ability4();
-            }else
-            {
-                Debug.Log("Distance12 is greater than 9: " + distance);
             }
         }
     }
