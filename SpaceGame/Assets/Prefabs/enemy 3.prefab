@@ -227,4 +227,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   rb: {fileID: 0}
-  deathEffect: {fileID: 187808730796462478, guid: a00bd8d2dbbaf744687dc53ed823af3a, type: 3}
+  deathEffect: {fileID: 1793662830984093042, guid: 74a412736a7907b4387128e26d330aae, type: 3}
