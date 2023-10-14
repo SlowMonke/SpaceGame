@@ -8,6 +8,7 @@ public class BulletMovement : MonoBehaviour
     public int damage = 10;
     public Rigidbody2D rb;
     private Camera _camera;
+    public GameObject deathEffect;
 
     private void Update()
     {
@@ -35,6 +36,8 @@ public class BulletMovement : MonoBehaviour
                 enemy.TakeDamage(1);
             }
             Destroy(gameObject);
+            Instantiate(deathEffect, transform.position, transform.rotation);
+            Destroy(gameObject);
         }
         if (hitInfo.GetType() == typeof(PolygonCollider2D))
         {
@@ -44,6 +47,8 @@ public class BulletMovement : MonoBehaviour
                 enemy.TakeDamage(1);
             }
             Destroy(gameObject);
+            Instantiate(deathEffect, transform.position, transform.rotation);
+            Destroy(gameObject);
         }
         if (hitInfo.GetType() == typeof(PolygonCollider2D))
         {
@@ -52,6 +57,30 @@ public class BulletMovement : MonoBehaviour
             {
                 enemy.TakeDamage(1);
             }
+            Destroy(gameObject);
+            Instantiate(deathEffect, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
+        if (hitInfo.GetType() == typeof(PolygonCollider2D))
+        {
+            EnemyScore3 enemy = hitInfo.GetComponent<EnemyScore3>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(1);
+            }
+            Destroy(gameObject);
+            Instantiate(deathEffect, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
+        if (hitInfo.GetType() == typeof(PolygonCollider2D))
+        {
+            EnemyScore4 enemy = hitInfo.GetComponent<EnemyScore4>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(1);
+            }
+            Destroy(gameObject);
+            Instantiate(deathEffect, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }
