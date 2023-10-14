@@ -22,6 +22,9 @@ public class BossAbilities : MonoBehaviour
     public Transform firePoint15;
     public Transform SpawnPoint1;
     public Transform SpawnPoint2;
+    public Transform SpawnSpiralSword1;
+    public Transform SpawnSpiralSword2;
+    public GameObject SpiralSword;
     public GameObject bulletPrefab;
     public GameObject bulletPrefab2;
     public GameObject MinionPrefab;
@@ -49,19 +52,19 @@ public class BossAbilities : MonoBehaviour
             }
             if (ShootingDelay <= 0)
             {
-                if (distance <= 9 && Random.value <= 0.75)
+                if (distance >= 9 && Random.value <= 0.25)
                 {
                     Ability4();
                 }
                 else
                 {
-                    if (Random.value <= 0.5f)
+                    if (Random.value <= 0.3f)
                     {
                         Ability2();
                     }
                     else
                     {
-                        if (Random.value <= 0.5f)
+                        if (Random.value <= 0.3f)
                         {
                             Ability3();
                         }
@@ -83,14 +86,14 @@ public class BossAbilities : MonoBehaviour
     {
          Shoot();
          Invoke("Shoot2", 1f);
-         ShootingDelay = 2f;
+         ShootingDelay = 4f;
     }
 
     void Ability2()
     {
         FallingAbilityPart1();
         Invoke("FallingAbilityPart2", 2f);
-        ShootingDelay = 4f;
+        ShootingDelay = 5f;
     }
 
     void Ability3()
@@ -102,8 +105,9 @@ public class BossAbilities : MonoBehaviour
     
     void Ability4()
     {
-        Debug.Log("funguje to");
-        ShootingDelay = 3f;
+        Instantiate(SpiralSword, SpawnSpiralSword1.position, SpawnSpiralSword1.rotation);
+        Instantiate(SpiralSword, SpawnSpiralSword2.position, SpawnSpiralSword2.rotation);
+        ShootingDelay = 7f;
         
     }
 

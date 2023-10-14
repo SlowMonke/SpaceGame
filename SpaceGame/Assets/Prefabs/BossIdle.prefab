@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 39716379}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SpawnPoint (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 147731433}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FirePoint1 (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 264917661}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FirePoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 359300624}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FirePoint1 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 481255897}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FirePoint1 (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,6 +155,37 @@ Transform:
   m_Father: {fileID: 3364272766015735530}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &648577291
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 648577292}
+  m_Layer: 0
+  m_Name: SpawnSpiralSword (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &648577292
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648577291}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.3, y: 23.44, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3364272766015735530}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &713219395
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,7 +195,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 713219396}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FirePoint1 (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +226,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 810685190}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FirePoint1 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +257,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 854207509}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FirePoint1 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,7 +288,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 887943301}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FirePoint1 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,7 +319,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1022003645}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FirePoint1 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,7 +350,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1043914916}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FirePoint1 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,6 +372,37 @@ Transform:
   m_Father: {fileID: 3364272766015735530}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 40}
+--- !u!1 &1344832492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1344832493}
+  m_Layer: 0
+  m_Name: SpawnSpiralSword
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1344832493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344832492}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.16, y: 12.79, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3364272766015735530}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1403710088
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,7 +412,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1403710089}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FirePoint1 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,7 +443,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1468395650}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FirePoint1 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -412,7 +474,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1486735044}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FirePoint1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -443,7 +505,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1800488952}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FirePoint1 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -474,7 +536,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1865096896}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FirePoint1 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -505,7 +567,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1980668167}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FirePoint1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -536,7 +598,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2004577786}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SpawnPoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -658,7 +720,7 @@ GameObject:
   - component: {fileID: 112368260}
   - component: {fileID: 468525928}
   - component: {fileID: -5792400813520340595}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: BossIdle
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -696,6 +758,8 @@ Transform:
   - {fileID: 2004577786}
   - {fileID: 39716379}
   - {fileID: 6763202588602979885}
+  - {fileID: 1344832493}
+  - {fileID: 648577292}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
@@ -902,6 +966,9 @@ MonoBehaviour:
   firePoint15: {fileID: 147731433}
   SpawnPoint1: {fileID: 2004577786}
   SpawnPoint2: {fileID: 39716379}
+  SpawnSpiralSword1: {fileID: 1344832493}
+  SpawnSpiralSword2: {fileID: 648577292}
+  SpiralSword: {fileID: 9101524914423126308, guid: 5f873fc140ed31b4c9b5f909fc302086, type: 3}
   bulletPrefab: {fileID: 8459767021480488406, guid: 33a20444570a644468a4be0862362272, type: 3}
   bulletPrefab2: {fileID: 898461325972169593, guid: 63a3b38659f46914b868fb91d5dfb961, type: 3}
   MinionPrefab: {fileID: 6698049575613574941, guid: 4fce92d7b2778aa46a6e6db3ca175bdf, type: 3}
