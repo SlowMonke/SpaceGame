@@ -5,18 +5,23 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     public List<SpawnPoint> enemySpawnPoints = new List<SpawnPoint>();
+    public Transform BossSpawnPoint;
     public GameObject enemyPrefab; // The regular enemy prefab to spawn
     public GameObject specialEnemyPrefab;
-    public GameObject specialEnemyPrefab2;// The special enemy prefab to spawn
-    private float minSpawnInterval = 1.0f; // Lowered initial minimum interval between enemy spawns
+    public GameObject specialEnemyPrefab2;
+    public GameObject BossPrefab;// The special enemy prefab to spawn
+    private float minSpawnInterval = 1.0f; // Lowered idddddnitial minimum interval between enemy spawns
     private float maxSpawnInterval = 3.0f; // Lowered initial maximum interval between enemy spawns
     private int totalKilledEnemies; // Variable to track total killed enemies
-    private float minSpawnIntervalLimit = 0.2f; // Minimum limit for minSpawnInterval
+    private float minSpawnIntervalLimit = 0.2f;
+    private int bosscount = 1;
+    public GameObject startEffect;// Minimum limit for minSpawnInterval
 
     private void Start()
     {
         // Start the coroutine for enemy spawning.
         StartCoroutine(SpawnEnemies());
+        bosscount = 1;
     }
 
     private IEnumerator SpawnEnemies()
@@ -51,6 +56,13 @@ public class EnemyManager : MonoBehaviour
 
                     }
                 }
+                if (Score.scoreValue >= 300 && bosscount == 1)
+                {
+                    Invoke("SpawnBoss1", 4f);
+                    Invoke("BossParticle", 2f);
+                    bosscount -= 1;
+                    Instantiate(startEffect, transform.position, transform.rotation);
+                }
 
                 // Mark the spawn point as unavailable for a short duration.
                 spawnPoint.SpawnObject();
@@ -70,6 +82,17 @@ public class EnemyManager : MonoBehaviour
                 yield return new WaitForSeconds(1.0f);
             }
         }
+    }
+
+    public void SpawnBoss1()
+    {
+        Quaternion rotation = Quaternion.Euler(0, 0, 90);
+        Instantiate(BossPrefab, BossSpawnPoint.transform.position, rotation);
+        Instantiate(startEffect, transform.position, transform.rotation);
+    }
+    public void BossParticle()
+    {
+        Instantiate(startEffect, transform.position, transform.rotation);
     }
 
     private SpawnPoint GetRandomAvailableSpawnPoint()

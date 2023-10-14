@@ -149,5 +149,4 @@ MonoBehaviour:
   speed: 25
   damage: 1
   rb: {fileID: 276013653679507770}
-  collidersToPassThrough:
-  - {fileID: 0}
+  deathEffect: {fileID: 3855806085126423767, guid: 6acd0764d5545a04d930b276e92173c2, type: 3}

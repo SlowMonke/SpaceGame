@@ -34,6 +34,7 @@ public class BossAbilities : MonoBehaviour
     void Start()
     {
         ShootingDelay = 5;
+        
     }
 
     void Update()
@@ -48,9 +49,9 @@ public class BossAbilities : MonoBehaviour
             }
             if (ShootingDelay <= 0)
             {
-                if (Random.value <= 0.25f)
+                if (distance <= 9 && Random.value <= 0.75)
                 {
-                    Ability1();
+                    Ability4();
                 }
                 else
                 {
@@ -66,9 +67,9 @@ public class BossAbilities : MonoBehaviour
                         }
                         else
                         {
-                            if (distance <= 9)
+                            if (Random.value <= 0.5f)
                             {
-                                Ability4();
+                                Ability1();
                             }
                         }
                     }
@@ -82,27 +83,27 @@ public class BossAbilities : MonoBehaviour
     {
          Shoot();
          Invoke("Shoot2", 1f);
-         ShootingDelay = 8f;
+         ShootingDelay = 2f;
     }
 
     void Ability2()
     {
         FallingAbilityPart1();
         Invoke("FallingAbilityPart2", 2f);
-        ShootingDelay = 6f;
+        ShootingDelay = 4f;
     }
 
     void Ability3()
     {
         Instantiate(MinionPrefab, SpawnPoint1.position, SpawnPoint1.rotation);
         Instantiate(MinionPrefab, SpawnPoint2.position, SpawnPoint2.rotation);
-        ShootingDelay = 20f;
+        ShootingDelay = 10f;
     }
     
     void Ability4()
     {
         Debug.Log("funguje to");
-        ShootingDelay = 5f;
+        ShootingDelay = 3f;
         
     }
 
