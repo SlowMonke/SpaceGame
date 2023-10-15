@@ -150,3 +150,5 @@ MonoBehaviour:
   damage: 1
   rb: {fileID: 276013653679507770}
   deathEffect: {fileID: 3855806085126423767, guid: 6acd0764d5545a04d930b276e92173c2, type: 3}
+  piercingActivated: 0
+  cooldownOnPiercing: {fileID: 268289856, guid: 92a6e17aff2352245937742e36f15c85, type: 3}

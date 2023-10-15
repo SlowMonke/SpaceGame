@@ -987,7 +987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaa1d9be1a9d3d849b722b05d2f754f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
+  health: 50
   rb: {fileID: 0}
   deathEffect: {fileID: 7485178981846996470, guid: 1c13654066bec8744b118b49accc00a0, type: 3}
 --- !u!95 &468525928
