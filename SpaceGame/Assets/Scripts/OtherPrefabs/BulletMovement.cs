@@ -9,6 +9,7 @@ public class BulletMovement : MonoBehaviour
     public Rigidbody2D rb;
     private Camera _camera;
     public GameObject deathEffect;
+    public bool piercingActivated = false;
 
     private void Update()
     {
@@ -27,62 +28,124 @@ public class BulletMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        // Check if the collider type is PolygonCollider2D
-        if (hitInfo.GetType() == typeof(PolygonCollider2D))
+        if (piercingActivated == true)
         {
-            EnemyHealth enemy = hitInfo.GetComponent<EnemyHealth>();
-            if (enemy != null)
+            if (hitInfo.GetType() == typeof(PolygonCollider2D))
             {
-                enemy.TakeDamage(1);
+                EnemyHealth enemy = hitInfo.GetComponent<EnemyHealth>();
+                if (enemy != null)
+                {
+                    enemy.TakeDamage(1);
+                }
+                //Destroy(gameObject);
+                Instantiate(deathEffect, transform.position, transform.rotation);
+                //Destroy(gameObject);
             }
-            Destroy(gameObject);
-            Instantiate(deathEffect, transform.position, transform.rotation);
-            Destroy(gameObject);
+            if (hitInfo.GetType() == typeof(PolygonCollider2D))
+            {
+                EnemyScore1 enemy = hitInfo.GetComponent<EnemyScore1>();
+                if (enemy != null)
+                {
+                    enemy.TakeDamage(1);
+                }
+                //Destroy(gameObject);
+                Instantiate(deathEffect, transform.position, transform.rotation);
+                //Destroy(gameObject);
+            }
+            if (hitInfo.GetType() == typeof(PolygonCollider2D))
+            {
+                EnemyScore2 enemy = hitInfo.GetComponent<EnemyScore2>();
+                if (enemy != null)
+                {
+                    enemy.TakeDamage(1);
+                }
+                //Destroy(gameObject);
+                Instantiate(deathEffect, transform.position, transform.rotation);
+                //Destroy(gameObject);
+            }
+            if (hitInfo.GetType() == typeof(PolygonCollider2D))
+            {
+                EnemyScore3 enemy = hitInfo.GetComponent<EnemyScore3>();
+                if (enemy != null)
+                {
+                    enemy.TakeDamage(1);
+                }
+                //Destroy(gameObject);
+                Instantiate(deathEffect, transform.position, transform.rotation);
+                //Destroy(gameObject);
+            }
+            if (hitInfo.GetType() == typeof(PolygonCollider2D))
+            {
+                EnemyScore4 enemy = hitInfo.GetComponent<EnemyScore4>();
+                if (enemy != null)
+                {
+                    enemy.TakeDamage(1);
+                }
+                //Destroy(gameObject);
+                Instantiate(deathEffect, transform.position, transform.rotation);
+                //Destroy(gameObject);
+            }
         }
-        if (hitInfo.GetType() == typeof(PolygonCollider2D))
+        else
         {
-            EnemyScore1 enemy = hitInfo.GetComponent<EnemyScore1>();
-            if (enemy != null)
+            if (hitInfo.GetType() == typeof(PolygonCollider2D))
             {
-                enemy.TakeDamage(1);
+                EnemyHealth enemy = hitInfo.GetComponent<EnemyHealth>();
+                if (enemy != null)
+                {
+                    enemy.TakeDamage(1);
+                }
+                Destroy(gameObject);
+                Instantiate(deathEffect, transform.position, transform.rotation);
+                Destroy(gameObject);
             }
-            Destroy(gameObject);
-            Instantiate(deathEffect, transform.position, transform.rotation);
-            Destroy(gameObject);
-        }
-        if (hitInfo.GetType() == typeof(PolygonCollider2D))
-        {
-            EnemyScore2 enemy = hitInfo.GetComponent<EnemyScore2>();
-            if (enemy != null)
+            if (hitInfo.GetType() == typeof(PolygonCollider2D))
             {
-                enemy.TakeDamage(1);
+                EnemyScore1 enemy = hitInfo.GetComponent<EnemyScore1>();
+                if (enemy != null)
+                {
+                    enemy.TakeDamage(1);
+                }
+                Destroy(gameObject);
+                Instantiate(deathEffect, transform.position, transform.rotation);
+                Destroy(gameObject);
             }
-            Destroy(gameObject);
-            Instantiate(deathEffect, transform.position, transform.rotation);
-            Destroy(gameObject);
-        }
-        if (hitInfo.GetType() == typeof(PolygonCollider2D))
-        {
-            EnemyScore3 enemy = hitInfo.GetComponent<EnemyScore3>();
-            if (enemy != null)
+            if (hitInfo.GetType() == typeof(PolygonCollider2D))
             {
-                enemy.TakeDamage(1);
+                EnemyScore2 enemy = hitInfo.GetComponent<EnemyScore2>();
+                if (enemy != null)
+                {
+                    enemy.TakeDamage(1);
+                }
+                Destroy(gameObject);
+                Instantiate(deathEffect, transform.position, transform.rotation);
+                Destroy(gameObject);
             }
-            Destroy(gameObject);
-            Instantiate(deathEffect, transform.position, transform.rotation);
-            Destroy(gameObject);
-        }
-        if (hitInfo.GetType() == typeof(PolygonCollider2D))
-        {
-            EnemyScore4 enemy = hitInfo.GetComponent<EnemyScore4>();
-            if (enemy != null)
+            if (hitInfo.GetType() == typeof(PolygonCollider2D))
             {
-                enemy.TakeDamage(1);
+                EnemyScore3 enemy = hitInfo.GetComponent<EnemyScore3>();
+                if (enemy != null)
+                {
+                    enemy.TakeDamage(1);
+                }
+                Destroy(gameObject);
+                Instantiate(deathEffect, transform.position, transform.rotation);
+                Destroy(gameObject);
             }
-            Destroy(gameObject);
-            Instantiate(deathEffect, transform.position, transform.rotation);
-            Destroy(gameObject);
+            if (hitInfo.GetType() == typeof(PolygonCollider2D))
+            {
+                EnemyScore4 enemy = hitInfo.GetComponent<EnemyScore4>();
+                if (enemy != null)
+                {
+                    enemy.TakeDamage(1);
+                }
+                Destroy(gameObject);
+                Instantiate(deathEffect, transform.position, transform.rotation);
+                Destroy(gameObject);
+            }
         }
+    
+        
     }
 
     private void DestroyWhenOffScreen()
