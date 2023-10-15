@@ -10,10 +10,19 @@ public class BulletMovement : MonoBehaviour
     private Camera _camera;
     public GameObject deathEffect;
     public bool piercingActivated = false;
+    public Weapon cooldownOnPiercing;
 
     private void Update()
     {
         DestroyWhenOffScreen();
+        if (GameManager.cooldownOnPiercing >= 1)
+        {
+            piercingActivated = true;
+        }
+        else
+        {
+            piercingActivated = false;
+        }
     }
 
     private void Awake()

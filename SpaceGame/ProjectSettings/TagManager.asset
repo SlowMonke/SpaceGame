@@ -7,6 +7,8 @@ TagManager:
   - enemy
   - DamageZone
   - PowerUp
+  - PowerUp2
+  - PowerUp3
   layers:
   - Default
   - TransparentFX

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PiercingPowerUp : MonoBehaviour
+public class DoubleShotPowerUp : MonoBehaviour
 {
     // Reference to the BulletMovement script
     public BulletMovement bulletMovement;
@@ -15,4 +15,3 @@ public class PiercingPowerUp : MonoBehaviour
         }
     }
 }
-
