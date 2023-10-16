@@ -7,6 +7,7 @@ public class RestartMenu : MonoBehaviour
 {
     public PlayerHealth script;
     public GameObject restartMenu;
+    public GameObject pauseMenu;
 
     void Start()
     {
@@ -20,6 +21,11 @@ public class RestartMenu : MonoBehaviour
         {
             restartMenu.SetActive(true);
             Invoke("Cooldown", 0.5f);
+        }
+
+        if(restartMenu.activeInHierarchy == true)
+        {
+            pauseMenu.SetActive(false);
         }
     }
 
@@ -45,4 +51,5 @@ public class RestartMenu : MonoBehaviour
     {
         Application.Quit();
     }
+
 }
