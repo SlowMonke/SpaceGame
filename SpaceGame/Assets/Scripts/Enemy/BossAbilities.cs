@@ -52,7 +52,7 @@ public class BossAbilities : MonoBehaviour
             }
             if (ShootingDelay <= 0)
             {
-                if (distance >= 9 && Random.value <= 0.25)
+                if (distance <= 9 && Random.value <= 0.25)
                 {
                     Ability4();
                 }

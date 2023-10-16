@@ -2963,6 +2963,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script: {fileID: 450631688}
   restartMenu: {fileID: 1820506970}
+  pauseMenu: {fileID: 267069939}
 --- !u!114 &1541350104
 MonoBehaviour:
   m_ObjectHideFlags: 0
