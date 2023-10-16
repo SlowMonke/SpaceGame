@@ -352,6 +352,7 @@ MonoBehaviour:
   - {fileID: 56046232772305458, guid: bb4c08682251a3646bb529bca63eb904, type: 3}
   - {fileID: 6539541455300629809, guid: fccc83d4796bd4c41b4e4b9f3fa8707a, type: 3}
   - {fileID: 7279380427920502600, guid: 9ab8a7d78fe906d4290021e633e14b23, type: 3}
+  - {fileID: 5600266562276083029, guid: fac9e5d600c2b034abd4b0fc42d84b53, type: 3}
   minInterval: 15
   maxInterval: 30
   oneskorenie: 1
@@ -383,7 +384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalSpeed: 1
-  horizontalRange: 10
+  horizontalRange: 7
 --- !u!1 &144343328
 GameObject:
   m_ObjectHideFlags: 0

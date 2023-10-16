@@ -13,5 +13,10 @@ public class ShootingDelayPowerUp : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (hitInfo.CompareTag("strela"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

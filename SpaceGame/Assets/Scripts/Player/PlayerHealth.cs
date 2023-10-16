@@ -18,8 +18,8 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
-        if (health <= 0)
+        GameManager.health -= damage;
+        if (GameManager.health <= 0)
         {
             Invoke("Die", 0.005f);
         }
@@ -34,6 +34,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
+        health = GameManager.health;
         if (health > numOfHearts)
         {
             health = numOfHearts;
