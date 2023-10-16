@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -7273586353447731278}
   m_Layer: 0
   m_Name: Strela
-  m_TagString: Untagged
+  m_TagString: strela
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

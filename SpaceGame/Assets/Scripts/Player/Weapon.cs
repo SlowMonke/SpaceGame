@@ -68,5 +68,10 @@ public class Weapon : MonoBehaviour
         {
             GameManager.cooldownOnDoubleShot = 10;
         }
+
+        if (hitInfo.CompareTag("Heart"))
+        {
+            GameManager.health += 1;
+        }
     }
 }

@@ -9,6 +9,8 @@ TagManager:
   - PowerUp
   - PowerUp2
   - PowerUp3
+  - strela
+  - Heart
   layers:
   - Default
   - TransparentFX

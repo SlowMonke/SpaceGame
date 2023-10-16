@@ -23,6 +23,7 @@ public class RestartMenu : MonoBehaviour
         }
     }
 
+
     public void Cooldown()
     {
         Time.timeScale = 0f;

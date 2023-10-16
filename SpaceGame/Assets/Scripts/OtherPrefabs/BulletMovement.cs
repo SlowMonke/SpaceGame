@@ -153,8 +153,26 @@ public class BulletMovement : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-    
-        
+
+        if (hitInfo.CompareTag("PowerUp"))
+        {
+            GameManager.cooldownOnPiercing = 10;
+        }
+
+        if (hitInfo.CompareTag("PowerUp2"))
+        {
+            GameManager.cooldownOnDelay = 10;
+        }
+
+        if (hitInfo.CompareTag("PowerUp3"))
+        {
+            GameManager.cooldownOnDoubleShot = 10;
+        }
+
+        if (hitInfo.CompareTag("Heart"))
+        {
+            GameManager.health += 1;
+        }
     }
 
     private void DestroyWhenOffScreen()
