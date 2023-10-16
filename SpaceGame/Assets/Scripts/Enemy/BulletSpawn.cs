@@ -10,7 +10,7 @@ public class BulletSpawn : MonoBehaviour
 
     void Start()
     {
-        ShootingDelay = 0;
+        ShootingDelay = 2;
     }
 
     void Update()
