@@ -58,20 +58,20 @@ public class EnemyManager : MonoBehaviour
 
                     }
                 }
-                if (Score.scoreValue >= 400 && Score.scoreValue <= 600 && Random.value <= 0.20f)
+                if (Score.scoreValue >= 400 && Score.scoreValue <= 10000 && Random.value <= 0.20f)
                 {
                     Instantiate(specialEnemyPrefab2, spawnPoint.transform.position, Quaternion.identity);
                 }
                 else
                 {
-                    if (Score.scoreValue >= 400 && Score.scoreValue <= 600 && Random.value <= 0.25f)
+                    if (Score.scoreValue >= 400 && Score.scoreValue <= 10000 && Random.value <= 0.25f)
                     {
                         // Spawn a special enemy at the selected spawn point.
                         Instantiate(specialEnemyPrefab, spawnPoint.transform.position, Quaternion.identity);
                     }
                     else
                     {
-                        if (Score.scoreValue >= 400 && Score.scoreValue <= 600)
+                        if (Score.scoreValue >= 400 && Score.scoreValue <= 10000)
                         {
                             Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
                         }
