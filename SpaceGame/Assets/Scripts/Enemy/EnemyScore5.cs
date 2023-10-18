@@ -9,10 +9,10 @@ public class EnemyScore5 : MonoBehaviour
     public GameObject deathEffect;
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        GameManager.healthboss -= damage;
 
 
-        if (health <= 0)
+        if (GameManager.healthboss <= 0)
         {
             Die();
             Score.scoreValue += 100;
@@ -24,5 +24,9 @@ public class EnemyScore5 : MonoBehaviour
     {
         Instantiate(deathEffect, transform.position, transform.rotation);
         Destroy(gameObject);
+    }
+    void Update()
+    {
+        health = GameManager.healthboss;
     }
 }

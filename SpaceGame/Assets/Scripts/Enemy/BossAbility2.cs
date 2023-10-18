@@ -20,6 +20,15 @@ public class BossAbility2 : MonoBehaviour
     public Transform firePoint13;
     public Transform firePoint14;
     public Transform firePoint15;
+    public Transform firePoint16;
+    public Transform firePoint17;
+    public Transform firePoint18;
+    public Transform firePoint19;
+    public Transform firePoint199;
+    public Transform firePoint20;
+    public Transform firePoint21;
+    public Transform firePoint22;
+    public Transform firePoint23;
     public Transform SpawnPoint1;
     public Transform SpawnPoint2;
     public Transform SpawnSpiralSword1;
@@ -32,14 +41,14 @@ public class BossAbility2 : MonoBehaviour
 
 
     public float ShootingDelay = 2f;
+    public float Delay = 2f;
     public Transform rocket;
     public Transform boss;
 
     void Start()
     {
-        ShootingDelay = 5;
-        Shoot();
-
+        ShootingDelay = 5f;
+        Delay = 2f;
     }
 
     void Update()
@@ -51,34 +60,39 @@ public class BossAbility2 : MonoBehaviour
             if (!PauseMenu.isPaused)
             {
                 ShootingDelay -= Time.deltaTime;
+                Delay -= Time.deltaTime;
             }
             if (ShootingDelay <= 0)
             {
-                if (distance <= 9 && Random.value <= 0.25)
-                {
-                    Ability4();
-                }
-                else
-                {
-                    if (Random.value <= 0.3f)
+                    if (distance <= 9 && Random.value <= 0.25)
                     {
-                        Ability2();
+                        Ability4();
                     }
                     else
                     {
                         if (Random.value <= 0.3f)
                         {
-                            Ability3();
+                            Ability2();
                         }
                         else
                         {
                             if (Random.value <= 0.5f)
                             {
-                                Ability1();
+                                
                             }
                         }
                     }
-                }
+            }
+           
+        }
+        if (Delay <= 0)
+        {
+            Debug.Log("ahoj");
+            if (GameManager.healthboss == 75 || GameManager.healthboss == 50 || GameManager.healthboss == 25)
+            {
+                Ability1();
+                Delay = 5f;
+                GameManager.healthboss -= 1;
             }
         }
     }
@@ -88,13 +102,12 @@ public class BossAbility2 : MonoBehaviour
     {
         Shoot();
         Invoke("Shoot2", 1f);
-        ShootingDelay = 4f;
+        ShootingDelay = 12f;
     }
 
     void Ability2()
     {
         FallingAbilityPart1();
-        Invoke("FallingAbilityPart2", 2f);
         ShootingDelay = 5f;
     }
 
@@ -106,13 +119,21 @@ public class BossAbility2 : MonoBehaviour
 
     void Ability4()
     {
-
-        ShootingDelay = 7f;
+        ShootingDelay = 12f;
+        Instantiate(bulletPrefab2, firePoint13.position, firePoint13.rotation);
+        Instantiate(bulletPrefab2, firePoint14.position, firePoint14.rotation);
+        Instantiate(bulletPrefab2, firePoint15.position, firePoint15.rotation);
+        Instantiate(bulletPrefab2, firePoint16.position, firePoint16.rotation);
+        Invoke("Shoot2", 6f);
 
     }
 
     void Shoot2()
     {
+        Instantiate(bulletPrefab2, firePoint17.position, firePoint17.rotation);
+        Instantiate(bulletPrefab2, firePoint18.position, firePoint18.rotation);
+        Instantiate(bulletPrefab2, firePoint19.position, firePoint19.rotation);
+        Instantiate(bulletPrefab2, firePoint199.position, firePoint199.rotation);
     }
 
     void Shoot()
@@ -134,18 +155,14 @@ public class BossAbility2 : MonoBehaviour
     }
     void FallingAbilityPart1()
     {
-        Instantiate(bulletPrefab2, firePoint7.position, firePoint7.rotation);
-        Instantiate(bulletPrefab2, firePoint8.position, firePoint8.rotation);
-        Instantiate(bulletPrefab2, firePoint9.position, firePoint9.rotation);
-        Instantiate(bulletPrefab2, firePoint10.position, firePoint10.rotation);
-        Instantiate(bulletPrefab2, firePoint11.position, firePoint11.rotation);
-        Instantiate(bulletPrefab, CenterPoint.position, CenterPoint.rotation);
+        Instantiate(SpiralSword, firePoint20.position, firePoint20.rotation);
+        Instantiate(SpiralSword, firePoint21.position, firePoint21.rotation);
+        Instantiate(SpiralSword, firePoint22.position, firePoint22.rotation);
+        Instantiate(SpiralSword, firePoint23.position, firePoint23.rotation);
+        Invoke("FallingAbilityPart2", 5f);
     }
     void FallingAbilityPart2()
     {
-        Instantiate(bulletPrefab2, firePoint12.position, firePoint12.rotation);
-        Instantiate(bulletPrefab2, firePoint13.position, firePoint13.rotation);
-        Instantiate(bulletPrefab2, firePoint14.position, firePoint14.rotation);
-        Instantiate(bulletPrefab2, firePoint15.position, firePoint15.rotation);
+        Destroy(SpiralSword);
     }
 }
