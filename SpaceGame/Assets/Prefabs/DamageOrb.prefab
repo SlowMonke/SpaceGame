@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 5055346489034399920}
   - component: {fileID: 3282808983977458861}
   - component: {fileID: 1938378541}
-  - component: {fileID: -6568542501078774637}
   m_Layer: 0
   m_Name: DamageOrb
   m_TagString: Untagged
@@ -205,16 +204,3 @@ MonoBehaviour:
   cooldown2: 2
   FirePoint: {fileID: 1760934247}
   bulletPrefab: {fileID: 5532839579679859520, guid: fae946c315e58c04d992644acffd750c, type: 3}
---- !u!114 &-6568542501078774637
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7404197144941763152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cea498fe4e115c147ab4637f6c6cbf5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cooldown2: 6

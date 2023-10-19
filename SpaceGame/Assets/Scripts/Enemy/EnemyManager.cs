@@ -51,7 +51,7 @@ public class EnemyManager : MonoBehaviour
                     }
                     else
                     {
-                        if (Score.scoreValue <= 300) 
+                        if (Score.scoreValue >= 300) 
                         {
                             Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
                         }

@@ -12,18 +12,19 @@ public class LaserSpawn : MonoBehaviour
 
     void Start()
     {
-        cooldown = 3f;
-        cooldown2 = 6f;
+        cooldown = 1f;
+        cooldown2 = 4f;
     }
 
     
     void Update()
     {
         cooldown -= Time.deltaTime;
+        cooldown2 -= Time.deltaTime;
         if(cooldown <= 0)
         {
             Shoot();
-            cooldown = 0.5f;
+            cooldown = 0.3f;
         }
         if(cooldown2 <= 0)
         {
