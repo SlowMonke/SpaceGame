@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cea498fe4e115c147ab4637f6c6cbf5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown2: 2
+  cooldown2: 6
 --- !u!114 &380955133606533908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4994,7 +4994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cea498fe4e115c147ab4637f6c6cbf5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown2: 2
+  cooldown2: 6
 --- !u!114 &-8365902791732160437
 MonoBehaviour:
   m_ObjectHideFlags: 0

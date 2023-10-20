@@ -319,7 +319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avoidanceRadius: 0.4
-  _playerAwarenessDistance: 10
+  _playerAwarenessDistance: 7
 --- !u!114 &8517223643316023446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,7 +332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f87110fc58c40341b954e8d37e973e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 1.5
+  _speed: 1
   _rotationSpeed: 250
   _screenBorder: -30
 --- !u!114 &1600519387

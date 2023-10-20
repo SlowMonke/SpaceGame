@@ -6,16 +6,22 @@ public class EnemyManager : MonoBehaviour
 {
     public List<SpawnPoint> enemySpawnPoints = new List<SpawnPoint>();
     public Transform BossSpawnPoint;
+    public Transform BossSpawnPoint2;
+    public Transform FirePoint;
     public GameObject enemyPrefab; // The regular enemy prefab to spawn
     public GameObject specialEnemyPrefab;
     public GameObject specialEnemyPrefab2;
-    public GameObject BossPrefab;// The special enemy prefab to spawn
+    public GameObject BossPrefab;
+    public GameObject BossPrefab2;// The special enemy prefab to spawn
     private float minSpawnInterval = 1.0f; // Lowered idddddnitial minimum interval between enemy spawns
     private float maxSpawnInterval = 3.0f; // Lowered initial maximum interval between enemy spawns
     private int totalKilledEnemies; // Variable to track total killed enemies
     private float minSpawnIntervalLimit = 0.2f;
     private int bosscount = 1;
+    private int bosscount2 = 1;
     public GameObject startEffect;
+    public GameObject startEffect2;
+    public GameObject startEffect22;
     public float cooldown = 60;// Minimum limit for minSpawnInterval
 
     private void Start()
@@ -23,6 +29,7 @@ public class EnemyManager : MonoBehaviour
         // Start the coroutine for enemy spawning.
         StartCoroutine(SpawnEnemies());
         bosscount = 1;
+        bosscount2 = 1;
         cooldown = 60;
     }
 
@@ -51,39 +58,65 @@ public class EnemyManager : MonoBehaviour
                     }
                     else
                     {
-                        if (Score.scoreValue >= 300) 
+                        if (Score.scoreValue <= 300) 
                         {
                             Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
                         }
 
                     }
                 }
-                if (Score.scoreValue >= 400 && Score.scoreValue <= 10000 && Random.value <= 0.20f)
+                if (Score.scoreValue >= 400 && Score.scoreValue <= 700 && Random.value <= 0.20f)
                 {
                     Instantiate(specialEnemyPrefab2, spawnPoint.transform.position, Quaternion.identity);
                 }
                 else
                 {
-                    if (Score.scoreValue >= 400 && Score.scoreValue <= 10000 && Random.value <= 0.25f)
+                    if (Score.scoreValue >= 400 && Score.scoreValue <= 700 && Random.value <= 0.25f)
                     {
                         // Spawn a special enemy at the selected spawn point.
                         Instantiate(specialEnemyPrefab, spawnPoint.transform.position, Quaternion.identity);
                     }
                     else
                     {
-                        if (Score.scoreValue >= 400 && Score.scoreValue <= 10000)
+                        if (Score.scoreValue >= 400 && Score.scoreValue <= 700)
                         {
                             Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
                         }
 
                     }
                 }
-                if (Score.scoreValue >= 300 && bosscount == 1)
+                if (Score.scoreValue >= 800 && Score.scoreValue <= 70000 && Random.value <= 0.20f)
+                {
+                    Instantiate(specialEnemyPrefab2, spawnPoint.transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    if (Score.scoreValue >= 800 && Score.scoreValue <= 70000 && Random.value <= 0.25f)
+                    {
+                        // Spawn a special enemy at the selected spawn point.
+                        Instantiate(specialEnemyPrefab, spawnPoint.transform.position, Quaternion.identity);
+                    }
+                    else
+                    {
+                        if (Score.scoreValue >= 800 && Score.scoreValue <= 70000)
+                        {
+                            Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
+                        }
+
+                    }
+                }
+                if (Score.scoreValue >= 3000 && bosscount == 1)
                 {
                     Invoke("SpawnBoss1", 4f);
                     Invoke("BossParticle", 2f);
                     bosscount -= 1;
                     Instantiate(startEffect, transform.position, transform.rotation);
+                }
+                if (Score.scoreValue >= 700 && bosscount2 == 1)
+                {
+                    Invoke("SpawnBoss2",6f);
+                    Invoke("BossParticle2", 2f);
+                    bosscount2 -= 1;
                 }
 
                 // Mark the spawn point as unavailable for a short duration.
@@ -109,9 +142,17 @@ public class EnemyManager : MonoBehaviour
     {
         if (cooldown <= 0)
         {
-            if (bosscount == 0 && Score.scoreValue >= 600 && Score.scoreValue <= 610)
+            if (bosscount == 0 && Score.scoreValue >= 1100 && Score.scoreValue <= 1110 && bosscount2 == 0)
             {
-                bosscount += 1;
+                if (Random.value <= 0.5)
+                {
+                    bosscount += 1;
+                }
+                else
+                {
+                    bosscount2 += 1;
+                }
+                
                 cooldown = 60;
             }
         }
@@ -124,9 +165,23 @@ public class EnemyManager : MonoBehaviour
         Instantiate(BossPrefab, BossSpawnPoint.transform.position, rotation);
         Instantiate(startEffect, transform.position, transform.rotation);
     }
+    public void SpawnBoss2()
+    {
+        Quaternion rotation = Quaternion.Euler(0, 0, 0);
+        Instantiate(BossPrefab2, BossSpawnPoint2.position, rotation);
+    }
     public void BossParticle()
     {
         Instantiate(startEffect, transform.position, transform.rotation);
+    }
+    public void BossParticle2()
+    {
+        Instantiate(startEffect2, FirePoint.position, FirePoint.rotation);
+        Invoke("BossParticle22", 4f);
+    }
+    public void BossParticle22()
+    {
+        Instantiate(startEffect22, FirePoint.position, FirePoint.rotation);
     }
 
     private SpawnPoint GetRandomAvailableSpawnPoint()

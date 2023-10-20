@@ -29,6 +29,14 @@ public class BossAbility2 : MonoBehaviour
     public Transform firePoint21;
     public Transform firePoint22;
     public Transform firePoint23;
+    public Transform firePoint24;
+    public Transform firePoint25;
+    public Transform firePoint26;
+    public Transform firePoint27;
+    public Transform firePoint28;
+    public Transform firePoint29;
+    public Transform firePoint30;
+    public Transform firePoint31;
     public Transform MiniSpawn1;
     public Transform MiniSpawn2;
     public Transform MiniSpawn3;
@@ -66,6 +74,7 @@ public class BossAbility2 : MonoBehaviour
 
     public float ShootingDelay = 2f;
     public float Delay = 2f;
+    public float laserIndicator = 0f;
     public Transform rocket;
     public Transform boss;
     public float Ability1cooldown = 2f;
@@ -74,11 +83,13 @@ public class BossAbility2 : MonoBehaviour
     public float Ability4cooldown = 2f;
     public float Ability5cooldown = 2f;
     public float Ability6cooldown = 2f;
+    public float Ability7cooldown = 2f;
 
     void Start()
     {
         ShootingDelay = 3f;
         Delay = 2f;
+        laserIndicator = 0f;
     }
 
     void Update()
@@ -91,6 +102,7 @@ public class BossAbility2 : MonoBehaviour
             {
                 ShootingDelay -= Time.deltaTime;
                 Delay -= Time.deltaTime;
+                Ability7cooldown -= Time.deltaTime;
                 Ability6cooldown -= Time.deltaTime;
                 Ability5cooldown -= Time.deltaTime;
                 Ability4cooldown -= Time.deltaTime;
@@ -126,6 +138,12 @@ public class BossAbility2 : MonoBehaviour
                                 if(Random.value <= 0.25 && Ability6cooldown <= 0)
                                 {
                                     Ability6();
+                                }else
+                                {
+                                    if (Random.value <= 0.25 && Ability7cooldown <= 0)
+                                    {
+                                        Ability7();
+                                    }
                                 }
                             }
                             }
@@ -208,6 +226,17 @@ public class BossAbility2 : MonoBehaviour
         Instantiate(bulletPrefab2, fire2Point12.position, fire2Point12.rotation);
         Invoke("Shoot4", 4f);
     }
+
+    void Ability7()
+    {
+        ShootingDelay = 8f;
+        Ability7cooldown = 15f;
+        Instantiate(bulletPrefab2, firePoint24.position, firePoint24.rotation);
+        Instantiate(bulletPrefab2, firePoint25.position, firePoint25.rotation);
+        Instantiate(bulletPrefab2, firePoint26.position, firePoint26.rotation);
+        Instantiate(bulletPrefab2, firePoint27.position, firePoint27.rotation);
+        Invoke("Shoot5", 4f);
+    }
     void Shoot3()
     {
         Instantiate(bulletPrefab2, fire2Point5.position, fire2Point5.rotation);
@@ -222,6 +251,14 @@ public class BossAbility2 : MonoBehaviour
         Instantiate(bulletPrefab2, fire2Point14.position, fire2Point14.rotation);
         Instantiate(bulletPrefab2, fire2Point15.position, fire2Point15.rotation);
         Instantiate(bulletPrefab2, fire2Point16.position, fire2Point16.rotation);
+    }
+
+    void Shoot5()
+    {
+        Instantiate(bulletPrefab2, firePoint28.position, firePoint28.rotation);
+        Instantiate(bulletPrefab2, firePoint29.position, firePoint29.rotation);
+        Instantiate(bulletPrefab2, firePoint30.position, firePoint30.rotation);
+        Instantiate(bulletPrefab2, firePoint31.position, firePoint31.rotation);
     }
 
     void Shoot2()
@@ -251,10 +288,23 @@ public class BossAbility2 : MonoBehaviour
     }
     void FallingAbilityPart1()
     {
-        Instantiate(Laser1, firePoint20.position, firePoint20.rotation);
-        Instantiate(Laser2, firePoint21.position, firePoint21.rotation);
-        Instantiate(Laser3, firePoint22.position, firePoint22.rotation);
-        Instantiate(Laser4, firePoint23.position, firePoint23.rotation);
+        if (laserIndicator == 0)
+        {
+            Instantiate(Laser1, firePoint20.position, firePoint20.rotation);
+            Instantiate(Laser2, firePoint21.position, firePoint21.rotation);
+            Instantiate(Laser3, firePoint22.position, firePoint22.rotation);
+            Instantiate(Laser4, firePoint23.position, firePoint23.rotation);
+            laserIndicator += 1f;
+        }
+        else
+        {
+            Instantiate(Laser1, firePoint20.position, firePoint20.rotation);
+            Instantiate(Laser2, firePoint21.position, firePoint21.rotation);
+            Instantiate(Laser3, firePoint22.position, firePoint22.rotation);
+            Instantiate(Laser4, firePoint23.position, firePoint23.rotation);
+            laserIndicator -= 1f;
+        }
+
        
     }
 }

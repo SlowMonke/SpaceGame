@@ -10,7 +10,7 @@ public class CircleAround : MonoBehaviour
     private void Start()
     {
         // Find the target (the boss or the object around which the bullets should rotate)
-        target = GameObject.Find("Maco").transform; // Replace "Boss" with the actual name of your boss object
+        target = GameObject.Find("Maco(Clone)").transform; // Replace "Boss" with the actual name of your boss object
     }
 
     private void Update()

@@ -8,7 +8,6 @@ public class Destroy : MonoBehaviour
 
     void Start()
     {
-        cooldown2 = 6f;
     }
 
     // Update is called once per frame
@@ -17,6 +16,10 @@ public class Destroy : MonoBehaviour
         cooldown2 -= Time.deltaTime;
         if (cooldown2 <= 0)
         {
+            GameManager.particleHealth1 = 0f;
+            GameManager.particleHealth2 = 0f;
+            GameManager.particleHealth3 = 0f;
+            GameManager.particleHealth4 = 0f;
             Destroy(gameObject);
         }
     }

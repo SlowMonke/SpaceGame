@@ -18,7 +18,7 @@ public class LaserDamage1 : MonoBehaviour
             if (Player != null)
             {
                 Player.TakeDamage(damage);
-                GameManager.particleHealth1 += 1;
+                GameManager.particleHealth1 = 1;
                 Destroy(gameObject);
 
             }
