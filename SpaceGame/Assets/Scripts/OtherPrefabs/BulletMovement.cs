@@ -94,6 +94,28 @@ public class BulletMovement : MonoBehaviour
                 Instantiate(deathEffect, transform.position, transform.rotation);
                 //Destroy(gameObject);
             }
+            if (hitInfo.GetType() == typeof(PolygonCollider2D))
+            {
+                EnemyScore5 enemy = hitInfo.GetComponent<EnemyScore5>();
+                if (enemy != null)
+                {
+                    enemy.TakeDamage(1);
+                }
+                //Destroy(gameObject);
+                Instantiate(deathEffect, transform.position, transform.rotation);
+                //Destroy(gameObject);
+            }
+            if (hitInfo.GetType() == typeof(PolygonCollider2D))
+            {
+                ShieldOrbHealth enemy = hitInfo.GetComponent<ShieldOrbHealth>();
+                if (enemy != null)
+                {
+                    enemy.TakeDamage(1);
+                }
+                //Destroy(gameObject);
+                Instantiate(deathEffect, transform.position, transform.rotation);
+                //Destroy(gameObject);
+            }
         }
         else
         {
@@ -144,6 +166,28 @@ public class BulletMovement : MonoBehaviour
             if (hitInfo.GetType() == typeof(PolygonCollider2D))
             {
                 EnemyScore4 enemy = hitInfo.GetComponent<EnemyScore4>();
+                if (enemy != null)
+                {
+                    enemy.TakeDamage(1);
+                }
+                Destroy(gameObject);
+                Instantiate(deathEffect, transform.position, transform.rotation);
+                Destroy(gameObject);
+            }
+            if (hitInfo.GetType() == typeof(PolygonCollider2D))
+            {
+                EnemyScore5 enemy = hitInfo.GetComponent<EnemyScore5>();
+                if (enemy != null)
+                {
+                    enemy.TakeDamage(1);
+                }
+                Destroy(gameObject);
+                Instantiate(deathEffect, transform.position, transform.rotation);
+                Destroy(gameObject);
+            }
+            if (hitInfo.GetType() == typeof(PolygonCollider2D))
+            {
+                ShieldOrbHealth enemy = hitInfo.GetComponent<ShieldOrbHealth>();
                 if (enemy != null)
                 {
                     enemy.TakeDamage(1);
