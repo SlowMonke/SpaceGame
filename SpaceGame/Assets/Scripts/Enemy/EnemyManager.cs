@@ -71,7 +71,7 @@ public class EnemyManager : MonoBehaviour
                 }
                 else
                 {
-                    if (Score.scoreValue >= 400 && Score.scoreValue <= 700 && Random.value <= 0.25f)
+                    if (Score.scoreValue >= 400 && Score.scoreValue <= 700 && Random.value <= 0.20f)
                     {
                         // Spawn a special enemy at the selected spawn point.
                         Instantiate(specialEnemyPrefab, spawnPoint.transform.position, Quaternion.identity);
@@ -105,7 +105,7 @@ public class EnemyManager : MonoBehaviour
 
                     }
                 }
-                if (Score.scoreValue >= 3000 && bosscount == 1)
+                if (Score.scoreValue >= 300 && bosscount == 1)
                 {
                     Invoke("SpawnBoss1", 4f);
                     Invoke("BossParticle", 2f);
